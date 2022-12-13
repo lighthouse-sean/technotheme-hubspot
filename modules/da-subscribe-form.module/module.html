@@ -1,0 +1,97 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-subscribe-form .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-subscribe-form .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-subscribe-form .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  .da-subscribe-form .subscribe-form-wrap {
+    {% if module.styles.form_wrapper.background_color.color %}
+    background-color: rgba({{ module.styles.form_wrapper.background_color.color|convert_rgb }}, {{ module.styles.form_wrapper.background_color.opacity / 100 }});
+    {% endif %}
+    {% if module.styles.form_wrapper.corner_radius >= 0 %}
+    border-radius: {{ module.styles.form_wrapper.corner_radius ~ "px" }};
+    {% endif %}
+  }
+
+  {% if module.styles.form.form_button_color.color %}
+  .da-subscribe-form form input[type=submit], 
+  .da-subscribe-form form .hs-button {
+    background-color: rgba({{ module.styles.form.form_button_color.color|convert_rgb }}, {{ module.styles.form.form_button_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.form.form_button_color.color|convert_rgb }}, {{ module.styles.form.form_button_color.opacity / 100 }});
+    {% if module.styles.form.form_button_text_color.color %}
+    color: rgba({{ module.styles.form.form_button_text_color.color|convert_rgb }}, {{ module.styles.form.form_button_text_color.opacity / 100 }});
+    {% endif %}
+  }
+  .da-subscribe-form form input[type=submit]:hover, 
+  .da-subscribe-form form .hs-button:hover {
+    background-color: rgba({{ color_variant(module.styles.form.form_button_color.color, -20)|convert_rgb }}, {{ module.styles.form.form_button_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.form.form_button_color.color, -20)|convert_rgb }}, {{ module.styles.form.form_button_color.opacity / 100 }});
+  }
+  .da-subscribe-form form input[type=submit]:active, 
+  .da-subscribe-form form .hs-button:active {
+    background-color: rgba({{ color_variant(module.styles.form.form_button_color.color, -30)|convert_rgb }}, {{ module.styles.form.form_button_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.form.form_button_color.color, -30)|convert_rgb }}, {{ module.styles.form.form_button_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-subscribe-form  {% if module.styles.content_text_center %}text-center{% endif %}">
+
+  <div class="subscribe-form-wrap px-40 py-40">
+    {% if module.tag_line %}
+    <div class="tagline-wrap mb-15">
+      <div class="tagline secondary-color">
+        {{ module.tag_line }}
+      </div>
+      {% if module.styles.tagline.tag_line_divider %}
+      <div class="tagline-line secondary-bg-color ml-15"></div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if module.heading_text %}
+    <div class="heading-text">
+      {{ module.styles.heading.heading_type }}
+      <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+        {{ module.heading_text }}
+      </span>
+    </div>
+    {% endif %}
+
+    {% if module.rich_text %}
+    <div>
+      {{ module.rich_text }}
+    </div>
+    {% endif %}
+
+    {% if module.blog_form.form_id %}
+    <div class="mt-30">
+      {% form
+        form_to_use="{{ module.blog_form.form_id }}"
+        no_title="true"
+        response_response_type="{{ module.blog_form.response_type }}"
+        response_message="{{ module.blog_form.message }}"
+        response_redirect_id="{{ module.blog_form.redirect_id }}"
+        response_redirect_url="{{module.blog_form.redirect_url}}"
+        gotowebinar_webinar_key="{{ module.blog_form.gotowebinar_webinar_key }}"
+      %}
+    </div>
+    {% endif %}
+  </div>
+</section>

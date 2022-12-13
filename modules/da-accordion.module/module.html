@@ -1,0 +1,213 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-accordion .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-accordion .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-accordion .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {# Button #}
+  {% if module.styles.button.button_outline %}
+  {% if module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  {# If Button Outline #}
+  .button-outline {
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button-outline:hover,
+  .button-outline:focus,
+  .button-outline:active {
+    background-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button.button_background_color.color or module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  .button, 
+  .cta_button {
+    background-color: rgba({{ module.styles.button.button_background_color.color|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  .button:hover, 
+  .button:focus,
+  .cta_button:hover,
+  .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button:active, 
+  .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  .da-accordion .panel-default {
+    {% if module.styles.panel.background.panel_background_color.color %}
+    background-color: rgba({{ module.styles.panel.background.panel_background_color.color|convert_rgb }}, {{ module.styles.panel.background.panel_background_color.opacity / 100 }});
+    {% endif %}
+    {# can only be used as a style field #}
+    {{ module.styles.panel.border.panel_border.css }}
+  }
+
+  {% if module.styles.panel.title.panel_title_color.color %}
+  .da-accordion .panel-title > a {
+    color: rgba({{ module.styles.panel.title.panel_title_color.color|convert_rgb }}, {{ module.styles.panel.title.panel_title_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.panel.tagline.panel_tag_line_color.color %}
+  .da-accordion .panel-default .tagline {
+    color: rgba({{ module.styles.panel.tagline.panel_tag_line_color.color|convert_rgb }}, {{ module.styles.panel.tagline.panel_tag_line_color.opacity / 100 }});
+  }
+  .da-accordion .panel-default .tagline-line {
+    background-color: rgba({{ module.styles.panel.tagline.panel_tag_line_color.color|convert_rgb }}, {{ module.styles.panel.tagline.panel_tag_line_color.opacity / 100 }});
+  }
+  {% else %}
+  .da-accordion .panel-default .tagline {
+    color: {{ theme.typography.body_text.color }};
+  }
+  .da-accordion .panel-default .tagline-line {
+    background-color: {{ theme.typography.body_text.color }};
+  }
+  {% endif %}
+
+  {% if module.styles.panel.icon.panel_icon_color.color %}
+  .da-accordion .panel-title > a .icon img {
+    fill: rgba({{ module.styles.panel.icon.panel_icon_color.color|convert_rgb }}, {{ module.styles.panel.icon.panel_icon_color.opacity / 100 }});
+  }
+  {% else %}
+  .da-accordion .panel-title>a .icon img {
+    fill: {{ theme.global_colors.secondary_color.color }};
+  }
+  {% endif %}
+
+  .da-accordion .panel-title>a[aria-expanded="true"] .icon {
+    transform: rotate({{ module.styles.panel.icon.panel_icon_rotate }}deg);
+  }
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-accordion {% if module.styles.content_text_center %}text-center{% endif %}">
+
+  {% if module.tag_line %}
+  <div class="tagline-wrap mb-15">
+    <div class="tagline secondary-color">
+      {{ module.tag_line }}
+    </div>
+    {% if module.styles.tagline.tag_line_divider %}
+    <div class="tagline-line secondary-bg-color ml-15"></div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if module.heading_text %}
+  <div class="heading-text">
+    {{ module.styles.heading.heading_type }}
+    <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">{{ module.heading_text }}</span>
+  </div>
+  {% endif %}
+
+  {% if module.rich_text %}
+  <div class="mb-40">
+    {{ module.rich_text }}
+  </div>
+  {% endif %}
+
+  <div class="panel-group" id="accordion-{{ name }}" role="tablist" aria-multiselectable="true">
+
+    {% for item in module.panel %}
+
+    <div class="panel panel-default text-left {% if module.styles.panel.background.panel_background_color.color %}p-20 mb-20{% else %}p-0 mb-10{% endif %}">
+
+      <div class="panel-heading" role="tab" id="heading{{ loop.index }}-{{ name }}">
+        <h4 class="panel-title font-size-{{ module.styles.panel.title.panel_title_font_size }} font-weight-600 line-height-12">
+          <a role="button" data-toggle="collapse" data-parent="#accordion-{{ name }}" href="#collapse{{ loop.index }}-{{ name }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}-{{ name }}">
+
+            {% if item.panel_tag_line %}
+            <div class="tagline-wrap mb-15 font-size-14">
+              <div class="tagline secondary-color">
+                {{ item.panel_tag_line }}
+              </div>
+              {% if module.styles.panel.tagline.panel_tag_line_divider %}
+              <div class="tagline-line secondary-bg-color ml-15"></div>
+              {% endif %}
+            </div>
+            {% endif %}
+
+            {{ item.panel_title }}
+
+            <div class="icon text-center">
+              <img src="{{ get_asset_url('../../images/icon_down.svg') }}" alt="Chevron Arrow" width="20" height="20">
+            </div>
+          </a>
+        </h4>
+      </div>
+
+      <div id="collapse{{ loop.index }}-{{ name }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ loop.index }}-{{ name }}">
+        <div class="panel-body">
+          <div class="content">
+            {{ item.panel_text }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+  {% if module.button.button_text %}
+  <div class="mt-30">
+    {% set href = module.button.button_link.url.href %}
+    {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+    {% endif %}
+    {% set rel = [] %}
+    {% if module.button.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+    {% endif %}
+    {% if module.button.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+    {% endif %}
+    <a class="{% if module.styles.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+       {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+       {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+       >
+      {{ module.button.button_text }}
+      {% if module.button.button_icon.name %}
+      {% icon
+          name="{{ module.button.button_icon.name }}"
+          style="{{ module.button.button_icon.type }}"
+          unicode="{{ module.button.button_icon.unicode }}"
+          icon_set="{{ module.button.button_icon.icon_set }}"
+          width="16"
+          height="16"
+        %}
+      {% endif %}
+    </a>
+  </div>
+  {% endif %}
+
+
+</section>

@@ -1,0 +1,183 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  .da-two-column-content-4 .form {
+    {% if module.styles.form.background.bg_color.color %}
+    background-color: rgba({{ module.styles.form.background.bg_color.color|convert_rgb }}, {{ module.styles.form.background.bg_color.opacity / 100 }});
+    {% endif %}
+    {{ module.styles.form.border.form_border.css }}
+    {{ module.styles.form.spacing.form_spacing.css }}
+  }
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-two-column-content-4 .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-two-column-content-4 .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-two-column-content-4 .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {# Button #}
+  {% if module.styles.button.button_outline %}
+  {% if module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  {# If Button Outline #}
+  .button-outline {
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button-outline:hover,
+  .button-outline:focus,
+  .button-outline:active {
+    background-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button.button_background_color.color or module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  .button, 
+  .cta_button {
+    background-color: rgba({{ module.styles.button.button_background_color.color|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  .button:hover, 
+  .button:focus,
+  .cta_button:hover,
+  .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button:active, 
+  .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+  
+  {% if module.styles.form.button.form_button_color.color %}
+  .da-two-column-content-4 form input[type=submit], 
+  .da-two-column-content-4 form .hs-button {
+    background-color: rgba({{ module.styles.form.button.form_button_color.color|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.form.button.form_button_color.color|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+    {% if module.styles.form_button_text_color.color %}
+    color: rgba({{ module.styles.form.button.form_button_text_color.color|convert_rgb }}, {{ module.styles.form.button.form_button_text_color.opacity / 100 }});
+    {% endif %}
+  }
+  .da-two-column-content-4 form input[type=submit]:hover, 
+  .da-two-column-content-4 form .hs-button:hover {
+    background-color: rgba({{ color_variant(module.styles.form.button.form_button_color.color, -20)|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.form.button.form_button_color.color, -20)|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+  }
+  .da-two-column-content-4 form input[type=submit]:active, 
+  .da-two-column-content-4 form .hs-button:active {
+    background-color: rgba({{ color_variant(module.styles.form.button.form_button_color.color, -30)|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.form.button.form_button_color.color, -30)|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-two-column-content-4">
+  <div class="flex flex--{{ module.styles.content_type }}">
+    <div class="col">
+      <div class="pr-40 pr-tablet-0 pr-phone-0">
+        {% if module.tag_line %}
+        <div class="tagline-wrap mb-15">
+          <div class="tagline secondary-color">
+            {{ module.tag_line }}
+          </div>
+          {% if module.styles.tagline.tag_line_divider %}
+            <div class="tagline-line secondary-bg-color ml-15"></div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% if module.heading_text %}
+        <div class="heading-text">
+          {{ module.styles.heading.heading_type }}
+          <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+            {{ module.heading_text }}
+          </span>
+        </div>
+        {% endif %}
+
+        {% if module.rich_text %}
+        <div class="mb-30">
+          {{ module.rich_text }}
+        </div>
+        {% endif %}
+
+        {% if module.button.button_text %}
+        <div>
+          {% set href = module.button.button_link.url.href %}
+          {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          {% set rel = [] %}
+          {% if module.button.button_link.no_follow %}
+          {% do rel.append("nofollow") %}
+          {% endif %}
+          {% if module.button.button_link.open_in_new_tab %}
+          {% do rel.append("noopener") %}
+          {% endif %}
+          <a class="{% if module.styles.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+             {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+             >
+            {{ module.button.button_text }}
+            {% if module.button.button_icon.name %}
+            {% icon
+              name="{{ module.button.button_icon.name }}"
+              style="{{ module.button.button_icon.type }}"
+              unicode="{{ module.button.button_icon.unicode }}"
+              icon_set="{{ module.button.button_icon.icon_set }}"
+              width="16"
+              height="16"
+            %}
+            {% endif %}
+          </a>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+    <div class="col">
+
+      {% if module.form.type == "meeting" %}
+      <div class="form p-30">
+
+        <div class="meetings-iframe-container" data-src="{{ module.form.meeting }}?embed=true"></div>
+        <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+      </div>
+      {% elif module.form.type == "form" %}
+      <div class="form py-50 px-40">
+        {% form
+          form_to_use="{{ module.form.form.form_id }}"
+          no_title="true"
+          response_response_type="{{ module.form.form.response_type }}"
+          response_message="{{ module.form.form.message }}"
+          response_redirect_id="{{ module.form.form.redirect_id }}"
+          response_redirect_url="{{module.form.form.redirect_url}}"
+          gotowebinar_webinar_key="{{ module.form.form.gotowebinar_webinar_key }}"
+        %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+</section>

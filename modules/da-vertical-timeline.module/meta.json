@@ -1,0 +1,8 @@
+{
+  "global" : false,
+  "icon" : "fontawesome-5.14.0:Project%20Diagram:SOLID",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 95244944406,
+  "label" : "Vertical Timeline",
+  "is_available_for_new_content" : true
+}

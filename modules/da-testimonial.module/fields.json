@@ -1,0 +1,361 @@
+[ {
+  "id" : "a0379207-6878-8b18-5c9d-21b8699c05aa",
+  "name" : "tag_line",
+  "display_width" : null,
+  "label" : "Tag Line",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "TESTIMONIAL"
+}, {
+  "id" : "94106b32-a826-1927-fd1a-185cf7be5b9f",
+  "name" : "heading_text",
+  "display_width" : null,
+  "label" : "Heading Text",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "WHAT OUR CUSTOMER SAY"
+}, {
+  "id" : "663fd3cb-b7a9-5ec9-04bf-1fe01330aba2",
+  "name" : "testimonial",
+  "display_width" : null,
+  "label" : "Testimonial",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : "402b2215-e061-94cf-99bf-11a43a3d6bf0",
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "402b2215-e061-94cf-99bf-11a43a3d6bf0",
+    "name" : "testimonial_text",
+    "display_width" : null,
+    "label" : "Testimonial Text",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p style=\"font-size: 20px;\">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.\"</p>"
+  }, {
+    "id" : "bcc1d66a-5fee-d8a7-8f01-5849ce0f7c90",
+    "name" : "testimonial_image",
+    "display_width" : null,
+    "label" : "Testimonial Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/women-s-white-and-black-button-up-collared-shirt.jpg",
+      "alt" : "women-s-white-and-black-button-up-collared-shirt",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 960,
+      "max_width" : 640,
+      "max_height" : 960
+    }
+  }, {
+    "id" : "b1246e9e-f967-699a-ccd7-a1ba2e27fa93",
+    "name" : "testimonial_name",
+    "display_width" : null,
+    "label" : "Testimonial Name",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "John Doe - Techslow"
+  }, {
+    "id" : "b23a4669-0f77-45ce-7b44-9c49d8eb6874",
+    "name" : "testimonial_title",
+    "display_width" : null,
+    "label" : "Testimonial Title",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Founder"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : [ {
+    "testimonial_text" : "<p style=\"font-size: 20px;\">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.\"</p>",
+    "testimonial_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/women-s-white-and-black-button-up-collared-shirt.jpg",
+      "alt" : "women-s-white-and-black-button-up-collared-shirt",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 960,
+      "max_width" : 640,
+      "max_height" : 960
+    },
+    "testimonial_name" : "John Doe - Techslow",
+    "testimonial_title" : "Founder"
+  }, {
+    "testimonial_text" : "<p style=\"font-size: 20px;\">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.\"</p>",
+    "testimonial_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/women-s-white-and-black-button-up-collared-shirt.jpg",
+      "alt" : "women-s-white-and-black-button-up-collared-shirt",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 960,
+      "max_width" : 640,
+      "max_height" : 960
+    },
+    "testimonial_name" : "John Doe - Techslow",
+    "testimonial_title" : "Founder"
+  }, {
+    "testimonial_text" : "<p style=\"font-size: 20px;\">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.\"</p>",
+    "testimonial_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/women-s-white-and-black-button-up-collared-shirt.jpg",
+      "alt" : "women-s-white-and-black-button-up-collared-shirt",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 960,
+      "max_width" : 640,
+      "max_height" : 960
+    },
+    "testimonial_name" : "John Doe - Techslow",
+    "testimonial_title" : "Founder"
+  } ]
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "display_width" : null,
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "620b699a-4cc4-feb0-e7a6-0c3d083bc822",
+    "name" : "tagline",
+    "display_width" : null,
+    "label" : "Tagline",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "43211aad-64e7-2837-c14f-bd3968fc85c6",
+      "name" : "tag_line_color",
+      "display_width" : null,
+      "label" : "Tag Line Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "6d54227f-05b7-2e72-0a14-b047c6379215",
+      "name" : "tag_line_divider",
+      "display_width" : null,
+      "label" : "Tag Line Divider",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : false
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "tag_line_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "tag_line_divider" : false
+    }
+  }, {
+    "id" : "8d57c71e-1ea4-f961-91a0-d5e8c2d3aaee",
+    "name" : "heading",
+    "display_width" : null,
+    "label" : "Heading",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "72538caa-3037-5bba-f93d-64b96886b336",
+      "name" : "heading_type",
+      "display_width" : null,
+      "label" : "Heading Type",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "<h1>", "H1" ], [ "<h2>", "H2" ], [ "<h3>", "H3" ], [ "<h4>", "H4" ], [ "<h5>", "H5" ], [ "<h6>", "H6" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "type" : "choice",
+      "default" : "<h2>"
+    }, {
+      "id" : "cd3f0e28-d05a-d542-9052-f31c97feaaee",
+      "name" : "heading_color",
+      "display_width" : null,
+      "label" : "Heading Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "7896ba64-ae0f-c9a9-5128-256ae8dacbdf",
+      "name" : "heading_font_size",
+      "display_width" : null,
+      "label" : "Heading Font Size",
+      "required" : false,
+      "locked" : false,
+      "display" : "text",
+      "max" : 100,
+      "step" : 1,
+      "type" : "number",
+      "default" : 14
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "heading_type" : "<h2>",
+      "heading_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "heading_font_size" : 14
+    }
+  }, {
+    "id" : "5bd7f671-1a88-42f8-bbf1-4d050871fcfa",
+    "name" : "author",
+    "display_width" : null,
+    "label" : "Author",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "2340a59f-7e67-96a1-829b-32fdf1d4d25b",
+      "name" : "author_testimonial_name_color",
+      "display_width" : null,
+      "label" : "Author Testimonial Name Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : 100
+      }
+    }, {
+      "id" : "1c9eab61-74f8-38e3-17d2-ea73c9f720c4",
+      "name" : "author_testimonial_title_color",
+      "display_width" : null,
+      "label" : "Author Testimonial Title Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : 100
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "author_testimonial_name_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "author_testimonial_title_color" : {
+        "color" : null,
+        "opacity" : 100
+      }
+    }
+  }, {
+    "id" : "bf4582ea-fce9-0919-8b3c-22c82e7d3968",
+    "name" : "image_carousel_dots_color",
+    "display_width" : null,
+    "label" : "Image Carousel Dots Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : null,
+      "opacity" : null
+    }
+  }, {
+    "id" : "cdcc4009-b372-5d05-a925-ea5123c09fa9",
+    "name" : "section_background_color",
+    "display_width" : null,
+    "label" : "Section Background Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "7ad48f24-ccd5-d145-4b92-098041b2e29f",
+    "name" : "content_text_center",
+    "display_width" : null,
+    "label" : "Content Text Center",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "tagline" : {
+      "tag_line_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "tag_line_divider" : false
+    },
+    "heading" : {
+      "heading_type" : "<h2>",
+      "heading_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "heading_font_size" : 14
+    },
+    "author" : {
+      "author_testimonial_name_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "author_testimonial_title_color" : {
+        "color" : null,
+        "opacity" : 100
+      }
+    },
+    "image_carousel_dots_color" : {
+      "color" : null,
+      "opacity" : null
+    },
+    "section_background_color" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    },
+    "content_text_center" : true
+  }
+} ]

@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "fontawesome-5.14.0:Indent:SOLID",
+  "host_template_types" : [ "PAGE", "BLOG_LISTING" ],
+  "module_id" : 95244907143,
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../js/scrollspy.js",
+    "name" : "scrollspy.js"
+  } ],
+  "label" : "Sidebar Content",
+  "is_available_for_new_content" : true
+}

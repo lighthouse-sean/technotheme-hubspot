@@ -1,0 +1,226 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-hero-1 .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-hero-1 .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-hero-1 .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {# Button 1 #}
+  {% if module.styles.button_1.button_outline %}
+  {# If Button Outline #}
+  {% if module.styles.button_1.button_border_color.color or module.styles.button_1.button_text_color.color %}
+  .button-1 .button-outline {
+    border-color: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+  }
+  .button-1 .button-outline:hover,
+  .button-1 .button-outline:focus,
+  .button-1 .button-outline:active {
+    background-color: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_1.button_text_color.color|convert_rgb }}, {{ module.styles.button_1.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_1.button_text_color.color|convert_rgb }}, {{ module.styles.button_1.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button_1.button_background_color.color or module.styles.button_1.button_border_color.color or module.styles.button_1.button_text_color.color %}
+  .button-1 .button, 
+  .button-1 .cta_button {
+    background-color: rgba({{ module.styles.button_1.button_background_color.color|convert_rgb }}, {{ module.styles.button_1.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_1.button_text_color.color|convert_rgb }}, {{ module.styles.button_1.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_1.button_text_color.color|convert_rgb }}, {{ module.styles.button_1.button_text_color.opacity / 100 }});
+  }
+  .button-1 .button:hover, 
+  .button-1 .button:focus,
+  .button-1 .cta_button:hover,
+  .button-1 .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button_1.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button_1.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button_1.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+  }
+  .button-1 .button:active, 
+  .button-1 .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button_1.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button_1.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button_1.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {# Button 2 #}
+  {% if module.styles.button_2.button_outline %}
+  {# If Button Outline #}
+  {% if module.styles.button_2.button_border_color.color or module.styles.button_2.button_text_color.color %}
+  .button-2 .button-outline {
+    border-color: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+  }
+  .button-2 .button-outline:hover,
+  .button-2 .button-outline:focus,
+  .button-2 .button-outline:active {
+    background-color: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_2.button_text_color.color|convert_rgb }}, {{ module.styles.button_2.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_2.button_text_color.color|convert_rgb }}, {{ module.styles.button_2.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button_2.button_background_color.color or module.styles.button_2.button_border_color.color or module.styles.button_2.button_text_color.color %}
+  .button-2 .button, 
+  .button-2 .cta_button {
+    background-color: rgba({{ module.styles.button_2.button_background_color.color|convert_rgb }}, {{ module.styles.button_2.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_2.button_text_color.color|convert_rgb }}, {{ module.styles.button_2.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_2.button_text_color.color|convert_rgb }}, {{ module.styles.button_2.button_text_color.opacity / 100 }});
+  }
+  .button-2 .button:hover, 
+  .button-2 .button:focus,
+  .button-2 .cta_button:hover,
+  .button-2 .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button_2.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button_2.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button_2.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+  }
+  .button-2 .button:active, 
+  .button-2 .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button_2.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button_2.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button_2.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {% if module.styles.image_corner.radius >= 0 %}
+  .da-hero-1 .img-block{
+    border-radius: {{ module.styles.image_corner.radius ~ "px" }};
+  }
+  {% endif %}
+  
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-hero-1 {% if module.styles.content_text_center %}text-center{% endif %}">
+  <div class="flex flex--{{ module.styles.content_type }}">
+    <div class="col">
+      {% if module.image.src %}
+      {% set sizeAttrs = 'width="{{ module.image.width }}" height="{{ module.image.height }}"' %}
+      {% if module.image.size_type == 'auto' %}
+      {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+      {% elif module.image.size_type == 'auto_custom_max' %}
+      {% set sizeAttrs = 'width="{{ module.image.max_width }}" height="{{ module.image.max_height }}" style="max-width: 100%; height: auto;"' %}
+      {% endif %}
+      {% set loadingAttr = module.image.loading != 'disabled' ? 'loading="{{ module.image.loading }}"' : '' %}
+      <img class="img-block" src="{{ module.image.src }}" alt="{{ module.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+      {% endif %}
+
+    </div>
+    <div class="col">
+      {% if module.tag_line %}
+      <div class="tagline-wrap mb-15">
+        <div class="tagline secondary-color">
+          {{ module.tag_line }}
+        </div>
+        {% if module.styles.tagline.tag_line_divider %}
+        <div class="tagline-line secondary-bg-color ml-15"></div>
+        {% endif %}   
+      </div>
+      {% endif %}
+
+      {% if module.heading_text %}
+      <div class="heading-text">
+        {{ module.styles.heading.heading_type }}
+        <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+          {{ module.heading_text }}
+        </span>
+      </div>
+      {% endif %}
+      
+      {% if module.rich_text %}
+      <div class="mb-40">
+        {{ module.rich_text }}
+      </div>
+      {% endif %}
+
+      <div class="{% if module.button_2.button_text %}button-wrap{% endif %}">
+
+        {% if module.button_1.button_text %}
+        <div class="button-1 button-col">
+          {% set href = module.button_1.button_link.url.href %}
+          {% if module.button_1.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          {% set rel = [] %}
+          {% if module.button_1.button_link.no_follow %}
+          {% do rel.append("nofollow") %}
+          {% endif %}
+          {% if module.button_1.button_link.open_in_new_tab %}
+          {% do rel.append("noopener") %}
+          {% endif %}
+          <a class="{% if module.styles.button_1.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+             {% if module.button_1.button_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+             >
+            
+            {{ module.button_1.button_text }}
+            {% if module.button_1.button_icon.name %}
+              {% icon
+                name="{{ module.button_1.button_icon.name }}"
+                style="{{ module.button_1.button_icon.type }}"
+                unicode="{{ module.button_1.button_icon.unicode }}"
+                icon_set="{{ module.button_1.button_icon.icon_set }}"
+                width="16"
+                height="16"
+              %}
+            {% endif %}
+          </a>
+        </div>
+        {% endif %}
+
+
+        {% if module.button_2.button_text %}
+        <div class="button-2 button-col">
+          {% set href = module.button_2.button_link.url.href %}
+          {% if module.button_2.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          {% set rel = [] %}
+          {% if module.button_2.button_link.no_follow %}
+          {% do rel.append("nofollow") %}
+          {% endif %}
+          {% if module.button_2.button_link.open_in_new_tab %}
+          {% do rel.append("noopener") %}
+          {% endif %}
+          <a class="{% if module.styles.button_2.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+             {% if module.button_2.button_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+             >
+            {{ module.button_2.button_text }}
+            {% if module.button_2.button_icon.name %}
+              {% icon
+                name="{{ module.button_2.button_icon.name }}"
+                style="{{ module.button_2.button_icon.type }}"
+                unicode="{{ module.button_2.button_icon.unicode }}"
+                icon_set="{{ module.button_2.button_icon.icon_set }}"
+                width="16"
+                height="16"
+              %}
+            {% endif %}
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

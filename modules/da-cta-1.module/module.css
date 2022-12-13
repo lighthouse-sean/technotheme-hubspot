@@ -1,0 +1,45 @@
+.da-cta-1 .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-right: -12px;
+  margin-left: -12px;
+}
+
+.da-cta-1 .flex .col {
+  flex: 1;
+  padding: 20px 12px;
+}
+
+.da-cta-1 .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-cta-1 .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-cta-1 .description-content-wrap {
+  padding: 50px 30px;
+}
+
+@media (max-width: 767px) {
+  
+  .da-cta-1 .flex .col {
+    flex: 0 0 100%;
+  }
+  
+  .da-cta-1 .description-content-wrap {
+    padding: 40px 20px;
+  }
+
+}
+
+.da-cta-1 .flex--left-button {
+  flex-direction: row-reverse;
+}

@@ -1,0 +1,81 @@
+.da-tabs .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-right: -12px;
+  margin-left: -12px;
+}
+
+.da-tabs .flex .col {
+  flex: 1;
+  padding: 20px 12px;
+}
+
+.da-tabs .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-tabs .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-tabs .fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+
+.da-tabs .fade.in {
+  opacity: 1;
+}
+
+.da-tabs .tab-content > .tab-pane {
+  display: none;
+}
+
+.da-tabs .tab-content > .active {
+  display: block;
+}
+
+.da-tabs .tab-content > .tab-pane .tagline-wrap {
+  justify-content: flex-start;
+}
+
+.da-tabs .nav-tabs li a {
+  border-bottom: 2px solid #f2f4f6;
+  padding: 9px 30px;
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+
+  .da-tabs .flex .col {
+    flex: 0 0 100%;
+  }
+
+}
+
+@media (max-width: 479px) {
+  
+  .da-tabs .nav-tabs li a {
+    width: 100%;
+  }
+  
+  .da-tabs .nav-tabs .list-inline-item {
+    display: block;
+  }
+  
+  .da-tabs .nav-tabs .list-inline-item:not(:last-child) {
+    margin-right: 0;
+  }
+  
+}
+.da-tabs .flex.flex--left-image {
+  flex-direction: row-reverse;
+}

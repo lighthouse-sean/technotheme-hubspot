@@ -1,0 +1,104 @@
+.da-pricing-1 .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin-right: -20px;
+  margin-left: -20px;
+  justify-content: center;
+}
+
+.da-pricing-1 .flex .col {
+  flex: 1;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+.da-pricing-1 .pricing-card {
+  cursor: pointer;
+  position: relative;
+}
+
+.da-pricing-1 .pricing-card .pricing-card-body{
+  position: relative;
+}
+
+.pricing-card .pricing-card-badge{
+  position: absolute;
+  right: 0;
+  top: -15px;
+  left: 0;
+}
+
+.pricing-card.text-left .pricing-card-badge{
+  left: 40px;
+}
+
+.da-pricing-1 .pricing-number,
+.da-pricing-1 .pricing-currency,
+.pricing-card .pricing-card-badge .pricing-card-badge-text{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pricing-card .pricing-card-badge .pricing-card-badge-text{
+  color: #fff;
+}
+
+.da-pricing-1 .pricing-card .button,
+.da-pricing-1 .pricing-card .cta_button,
+.da-pricing-1 .pricing-card .button-outline {}
+
+.da-pricing-1 .pricing-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.da-pricing-1 .pricing-card .pricing-features-wrapper{
+  margin: 0;
+}
+
+.da-pricing-1 .pricing-card .pricing-text {
+  border-width: 0;
+}
+
+.da-pricing-1 .pricing-card .pricing-text p:last-child {
+  margin-bottom: 0; 
+}
+
+.da-pricing-1 .pricing-card-footer {}
+
+.da-pricing-1 .pricing-features-text {
+  display: block; 
+}
+
+@media (max-width: 1139px) {
+
+  .da-pricing-1 .flex .col {
+    flex: 50%;
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .da-pricing-1 .flex .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .pricing-card .pricing-card-badge {
+    position: relative;
+    right: 0;
+    top: 0;
+    left: 0;
+    margin-bottom: 20px;
+  }
+
+  .pricing-card.text-left .pricing-card-badge{
+    left: 0;
+  }
+
+}

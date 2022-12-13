@@ -1,0 +1,30 @@
+.da-blog-post-cta .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-blog-post-cta .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-blog-post-cta .cta-wrap .flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) { 
+
+  .da-blog-post-cta .cta-wrap .flex{
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .da-blog-post-cta .cta-wrap .flex .col {
+    flex: 0 0 100%;
+    padding: 10px 0;
+  }
+
+}

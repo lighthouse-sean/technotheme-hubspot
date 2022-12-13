@@ -1,0 +1,102 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  
+  .da-breadcrumb .breadcrumb {
+    {% if module.styles.background.breadcrumb_background_type == "image" %}
+    {# can only be used as a style field #}
+    {{ module.styles.background.breadcrumb_background_image.css }} 
+    {% elif module.styles.background.breadcrumb_background_type == "gradient" %}
+    {# can only be used as a style field #}
+    background: {{ module.styles.background.breadcrumb_background_gradient.css }}; 
+    {% endif %}
+    {# can only be used as a style field #}
+    {{ module.styles.border.breadcrumb_border.css }} 
+  }
+  
+  {% if module.styles.colors.breadcrumb_link_color.color %}
+  .da-breadcrumb .breadcrumb a {
+    color: rgba({{ module.styles.colors.breadcrumb_link_color.color|convert_rgb }}, {{ module.styles.colors.breadcrumb_link_color.opacity / 100 }});
+  }
+  .da-breadcrumb .breadcrumb a:hover,
+  .da-breadcrumb .breadcrumb a:focus {
+    color: rgba({{ color_variant(module.styles.colors.breadcrumb_link_color.color, -20)|convert_rgb }}, {{ module.styles.colors.breadcrumb_link_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {% if module.styles.colors.breadcrumb_text_color.color %}
+  .da-breadcrumb .breadcrumb>li,
+  .da-breadcrumb .section-title {
+    color: rgba({{ module.styles.colors.breadcrumb_text_color.color|convert_rgb }}, {{ module.styles.colors.breadcrumb_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {% if module.styles.colors.breadcrumb_icon_color.color %}
+  .da-breadcrumb .breadcrumb>li svg {
+    fill: rgba({{ module.styles.colors.breadcrumb_icon_color.color|convert_rgb }}, {{ module.styles.colors.breadcrumb_icon_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-breadcrumb">
+  
+  <div id="section-title-{{ name }}" class="section-title {% if module.styles.content_alignment.breadcrumb_text_center %}text-center{% endif %}">Toggle</div>
+
+  {% if module.breadcrumb %}
+  <ol id="sitemap-{{ name }}" class="breadcrumb nav {% if module.styles.content_alignment.breadcrumb_text_center %}text-center{% endif %}">
+    {% for item in module.breadcrumb %}
+    <li>
+      {% set href = item.breadcrumb_link.url.href %}
+      {% if item.breadcrumb_link.url.type is equalto "EMAIL_ADDRESS" %}
+      {% set href = "mailto:" + href %}
+      {% endif %}
+      {% set rel = [] %}
+      {% if item.breadcrumb_link.no_follow %}
+      {% do rel.append("nofollow") %}
+      {% endif %}
+      {% if item.breadcrumb_link.open_in_new_tab %}
+      {% do rel.append("noopener") %}
+      {% endif %}
+
+      {% if href %}<a href="{{ href }}"
+         {% if item.breadcrumb_link.open_in_new_tab %}target="_blank"{% endif %}
+         {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+         >
+      {% endif %}
+        {{ item.breadcrumb_text }}
+      {% if href %}</a>{% endif %}
+      
+       {% if not loop.last %}
+        <span class="icon">
+            {% icon
+              name="{{ item.breadcrumb_icon.name }}"
+              style="{{ item.breadcrumb_icon.type }}"
+              unicode="{{ item.breadcrumb_icon.unicode }}"
+              icon_set="{{ item.breadcrumb_icon.icon_set }}"
+              width="15"
+              height="15"
+            %}
+        </span>
+        {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+
+</section>
+
+{% require_js position="footer" %}
+<script>
+  $(function() {
+
+    $('#section-title-{{ name }}').on( "click", function() {
+      $('#sitemap-{{ name }}').slideToggle(300);
+      $(this).toggleClass('open');
+    });
+
+  });
+</script>
+{% end_require_js %}

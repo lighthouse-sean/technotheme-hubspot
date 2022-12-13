@@ -1,0 +1,241 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  .da-form .form {
+    {% if module.styles.form.background.form_background_type == "image" %}
+    {{ module.styles.form.background.form_background_image.css }}
+    {% elif module.styles.form.background.form_background_type == "gradient" %}
+    background: {{ module.styles.form.background.form_background_gradient.css }};
+    {% endif %}
+    {% if module.styles.form.corner.radius >= 0 %}
+    border-radius: {{ module.styles.form.corner.radius ~ "px" }};
+    {% endif %}
+    {{ module.styles.form.border.form_border.css }}
+    {{ module.styles.form.spacing.form_spacing.css }}
+  }
+
+  {% if module.styles.form.background.form_background_type == "gradient" %}
+  .da-form form {
+    background: {{ module.styles.form.background.form_background_gradient.css }};
+  }
+  {% endif %}
+
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-form .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-form .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-form .heading-text .heading-color {
+    color: rgba({{ module.styles.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.description_content.description_content_background_color.color %}
+  .da-form .description-content-wrapper {
+    background-color: rgba({{ module.styles.description_content.description_content_background_color.color|convert_rgb }}, {{ module.styles.description_content.description_content_background_color.opacity / 100 }});
+  }
+  {% else %}
+  .da-form .description-content-wrapper {
+    background-color: {{ theme.global_colors.secondary_color.color }};
+  }
+  {% endif %}
+
+  {% if module.styles.description_content.description_content_text_color.color %}
+  .da-form .description-content-text * {
+    color: rgba({{ module.styles.description_content.description_content_text_color.color|convert_rgb }}, {{ module.styles.description_content.description_content_text_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  
+  .da-form .form-title {
+    {% if module.styles.form.title.form_title_background_color.color %}
+    background-color: rgba({{ module.styles.form.title.form_title_background_color.color|convert_rgb }}, {{ module.styles.form.title.form_title_background_color.opacity / 100 }});
+    {% endif %}
+    {% if module.styles.form.title.form_title_text_color.color %}
+    color: rgba({{ module.styles.form.title.form_title_text_color.color|convert_rgb }}, {{ module.styles.form.title.form_title_text_color.opacity / 100 }});
+    {% endif %}
+    padding: 10px 20px;
+  }
+
+  {% if module.styles.form.button.form_button_color.color %}
+  .da-form form input[type=submit], 
+  .da-form form .hs-button {
+    background-color: rgba({{ module.styles.form.button.form_button_color.color|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.form.button.form_button_color.color|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+    {% if module.styles.form.button.form_button_text_color.color %}
+    color: rgba({{ module.styles.form.button.form_button_text_color.color|convert_rgb }}, {{ module.styles.form.button.form_button_text_color.opacity / 100 }});
+    {% endif %}
+  }
+  .da-form form input[type=submit]:hover, 
+  .da-form form .hs-button:hover {
+    background-color: rgba({{ color_variant(module.styles.form.button.form_button_color.color, -20)|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.form.button.form_button_color.color, -20)|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+  }
+  .da-form form input[type=submit]:active, 
+  .da-form form .hs-button:active {
+    background-color: rgba({{ color_variant(module.styles.form.button.form_button_color.color, -30)|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.form.button.form_button_color.color, -30)|convert_rgb }}, {{ module.styles.form.button.form_button_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {# Description Content Button #}
+  {% if module.styles.description_content.button.button_outline %}
+  {% if module.styles.description_content.button.button_border_color.color or module.styles.description_content.button.button_text_color.color %}
+  {# If Button Outline #}
+  .description-content-wrap .button-outline {
+    border-color: rgba({{ module.styles.description_content.button.button_border_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.description_content.button.button_border_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.description_content.button.button_border_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_border_color.opacity / 100 }});
+  }
+  .description-content-wrap .button-outline:hover,
+  .description-content-wrap .button-outline:focus,
+  .description-content-wrap .button-outline:active {
+    background-color: rgba({{ module.styles.description_content.button.button_border_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.description_content.button.button_text_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.description_content.button.button_text_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.description_content.button.button_background_color.color or module.styles.description_content.button.button_border_color.color or module.styles.description_content.button.button_text_color.color %}
+  .description-content-wrap .button, 
+  .description-content-wrap .cta_button {
+    background-color: rgba({{ module.styles.description_content.button.button_background_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.description_content.button.button_border_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.description_content.button.button_text_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.description_content.button.button_text_color.color|convert_rgb }}, {{ module.styles.description_content.button.button_text_color.opacity / 100 }});
+  }
+  .description-content-wrap .button:hover, 
+  .description-content-wrap .button:focus,
+  .description-content-wrap .cta_button:hover,
+  .description-content-wrap .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.description_content.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.description_content.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.description_content.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.description_content.button.button_border_color.opacity / 100 }});
+  }
+  .description-content-wrap .button:active, 
+  .description-content-wrap .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.description_content.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.description_content.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.description_content.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.description_content.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-form">
+  <div class="flex flex--{{ module.styles.content_type }}">
+    <div class="col text-left">
+      {% if module.tag_line %}
+      <div class="tagline-wrap mb-15">
+        <div class="tagline secondary-color">
+          {{ module.tag_line }}
+        </div>
+        {% if module.styles.tag_line_divider %}
+        <div class="tagline-line secondary-bg-color ml-15"></div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if module.heading_text %}
+      <div class="heading-text">
+        {{ module.styles.heading.heading_type }}
+        <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+          {{ module.heading_text }}
+        </span>
+      </div>
+      {% endif %}
+
+      {% if module.rich_text %}
+      <div class="mb-30">
+        {{ module.rich_text }}
+      </div>
+      {% endif %}
+
+      <div class="form box-shadow" id="form">
+        {% if module.form.form_title %}
+        <div class="mb-10 px-10">
+          <h3 class="form-title">
+            {{ module.form.form_title }}
+          </h3>
+        </div>
+        {% endif %}
+        {% form
+          form_to_use="{{ module.form.form.form_id }}"
+          no_title="true"
+          response_response_type="{{ module.form.form.response_type }}"
+          response_message="{{ module.form.form.message }}"
+          response_redirect_id="{{ module.form.form.redirect_id }}"
+          response_redirect_url="{{module.form.form.redirect_url}}"
+          gotowebinar_webinar_key="{{ module.form.form.gotowebinar_webinar_key }}"
+        %}
+      </div>
+    </div>
+    <div class="col text-phone-left">
+
+      <div class="description-content-wrapper p-40">
+
+        {% if module.description_content.image.src %}
+        <div class="description-content-img mb-20">
+          {% set sizeAttrs = 'width="{{ module.description_content.image.width }}" height="{{ module.description_content.image.height }}"' %}
+          {% if module.description_content.image.size_type == 'auto' %}
+          {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+          {% elif module.description_content.image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ module.description_content.image.max_width }}" height="{{ module.description_content.image.max_height }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          {% set loadingAttr = module.description_content.image.loading != 'disabled' ? 'loading="{{ module.description_content.image.loading }}"' : '' %}
+          <img src="{{ module.description_content.image.src }}" alt="{{ module.description_content.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+        </div>
+        {% endif %}
+
+        {% if module.description_content.content %}
+        <div class="description-content-text">
+          {{ module.description_content.content }}
+        </div>
+        {% endif %}
+
+        {% if module.description_content.button.button_text %}
+        <div class="mt-20">
+          {% set href = module.description_content.button.button_link.url.href %}
+          {% if module.description_content.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          {% set rel = [] %}
+          {% if module.description_content.button.button_link.no_follow %}
+          {% do rel.append("nofollow") %}
+          {% endif %}
+          {% if module.description_content.button.button_link.open_in_new_tab %}
+          {% do rel.append("noopener") %}
+          {% endif %}
+          <a class="{% if module.styles.description_content.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+             {% if module.description_content.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+             >
+            {{ module.description_content.button.button_text }}
+            {% if module.description_content.button.button_icon.name %}
+            {% icon
+              name="{{ module.description_content.button.button_icon.name }}"
+              style="{{ module.description_content.button.button_icon.type }}"
+              unicode="{{ module.description_content.button.button_icon.unicode }}"
+              icon_set="{{ module.description_content.button.button_icon.icon_set }}"
+              width="16"
+              height="16"
+            %}
+            {% endif %}
+
+          </a>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+
+</section>

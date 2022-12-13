@@ -1,0 +1,38 @@
+.da-card-1 .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -10px;
+}
+
+.da-card-1 .flex .col {
+  flex: 0 0 33.3333333333%;
+  max-width: 33.3333333333%;
+  padding: 10px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.da-card-1 .card {
+  width: 100%;
+  overflow: hidden;
+}
+
+.da-card-1 .card .button,
+.da-card-1 .card .cta_button,
+.da-card-1 .card .button-outline {}
+
+@media (max-width: 767px) {
+
+  .da-card-1 .flex .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .da-card-1 .flex .col:not(:last-child) {
+    padding-bottom: 20px;
+  }
+
+}

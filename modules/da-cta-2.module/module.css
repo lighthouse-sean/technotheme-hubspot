@@ -1,0 +1,64 @@
+.da-cta-2 .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-right: -12px;
+  margin-left: -12px;
+}
+
+.da-cta-2 .flex .col {
+  flex: 1;
+  padding: 20px 12px;
+}
+
+.da-cta-2 .flex.right-cta .col:last-child {
+  flex: 0 0 41.6666666667%;
+  max-width: 41.6666666667%
+}
+
+.da-cta-2 .flex.left-cta .col:first-child {
+  flex: 0 0 41.6666666667%;
+  max-width: 41.6666666667%
+}
+
+.da-cta-2 .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-cta-2.text-center .tagline-wrap {
+  justify-content: center;
+}
+
+.da-cta-2 .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+@media (max-width: 768px) {
+  
+  .da-cta-2 .flex .col.hidden-phone {
+    padding: 0; 
+  }
+
+  .da-cta-2 .flex .col {
+    flex: 0 0 100%;
+  }
+
+  .da-cta-2 .flex.flex--right-cta .col:last-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .da-cta-2 .flex.flex--left-cta .col:first-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+}
+.da-cta-2 .flex.flex--left-cta {
+  flex-direction: row-reverse;
+}

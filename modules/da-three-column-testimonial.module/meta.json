@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "fontawesome-5.14.0:quote-left:SOLID",
+  "host_template_types" : [ "PAGE", "BLOG_LISTING" ],
+  "module_id" : 95244607608,
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../js/masonry.js",
+    "name" : "masonry.js"
+  } ],
+  "label" : "Three Column Testimonial",
+  "is_available_for_new_content" : true
+}

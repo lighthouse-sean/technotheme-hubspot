@@ -1,0 +1,84 @@
+.da-hero-1 .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.da-hero-1 .flex .col {
+  flex: 1;
+  padding: 0px 20px;
+}
+
+.da-hero-1 .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-hero-1.text-center .tagline-wrap {
+  justify-content: center;
+}
+
+.da-hero-1 .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-hero-1 .button-wrap .button-col {
+  display: inline-block;
+}
+
+.da-hero-1 .button-wrap .button-col:not(:last-child) {
+  margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+
+  .da-hero-1 .flex .col {
+    flex: 0 0 100%;
+  }
+
+  .da-hero-1 .flex .col:not(:last-child) {
+    padding-bottom: 20px;
+  }
+  
+}
+
+@media (max-width: 479px) {
+  
+  .da-hero-1 .button-wrap .button-col {
+    display: block;
+  }
+  
+  .da-hero-1 .button-wrap .button-col a {
+    width: 100%; 
+  }
+  
+  .da-hero-1 .button-wrap .button-col:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  
+}
+
+	
+@media(min-width:768px) and (max-width:1024px) {
+  
+  .button-1 .button, 
+  .button-1 .cta_button,
+  .button-2 .button,
+  .button-2 .cta_button {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 14px;
+  }
+  
+}
+
+.da-hero-1 .flex--right-image {
+  flex-direction: row-reverse;
+}

@@ -1,0 +1,761 @@
+[ {
+  "id" : "0d43f487-b08a-2055-2fa2-f372b626802f",
+  "name" : "tag_line",
+  "display_width" : null,
+  "label" : "Tag Line",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Blog Listing Hero"
+}, {
+  "id" : "3b89544c-15a8-7c40-48b6-1febed67c7d1",
+  "name" : "tag_line_author",
+  "display_width" : null,
+  "label" : "Tag Line Author",
+  "help_text" : "Visible on author's page",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Blog Author"
+}, {
+  "id" : "94106b32-a826-1927-fd1a-185cf7be5b9f",
+  "name" : "heading_text",
+  "display_width" : null,
+  "label" : "Heading Text",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Hero Module - Center Align"
+}, {
+  "id" : "27f9d1dd-c759-1d14-27a2-6d9eaf779196",
+  "name" : "rich_text",
+  "display_width" : null,
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<p><strong>Hero Sub Paragraph Module - Center Align</strong></p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultrices ligula posuere<br>leo ultrices, at rutrum tellus accumsan.</p>"
+}, {
+  "id" : "284f6ad5-2ed4-9dc2-d90b-ab163197fcf6",
+  "name" : "add_featured_card",
+  "display_width" : null,
+  "label" : "Add Featured Card",
+  "required" : false,
+  "locked" : false,
+  "display" : "checkbox",
+  "type" : "boolean",
+  "default" : false
+}, {
+  "id" : "1a0c9cc9-c805-8298-60f1-d052a14e3425",
+  "name" : "card",
+  "display_width" : null,
+  "label" : "Card",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : "284f6ad5-2ed4-9dc2-d90b-ab163197fcf6",
+    "controlling_field_path" : null,
+    "controlling_value_regex" : "true",
+    "property" : null,
+    "operator" : "EQUAL",
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "children" : [ {
+    "id" : "704b927a-1bc3-c25f-e076-bcf746119f6c",
+    "name" : "date",
+    "display_width" : null,
+    "label" : "Date",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : ""
+  }, {
+    "id" : "8306bab1-205b-0216-15f6-9f4edf0bdf7a",
+    "name" : "author",
+    "display_width" : null,
+    "label" : "Author",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : ""
+  }, {
+    "id" : "d369a64a-f207-14bc-b90c-47e1a0e90176",
+    "name" : "topic",
+    "display_width" : null,
+    "label" : "Topic",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : null
+    },
+    "children" : [ {
+      "id" : "b443ceab-b5a7-34c3-b5f0-20bbb9e5fb3f",
+      "name" : "topic_text",
+      "display_width" : null,
+      "label" : "Topic Text",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "default" : "FEATURED BLOG"
+    }, {
+      "id" : "6bb9928b-8dc8-6ce6-e5f1-552760960823",
+      "name" : "topic_link",
+      "display_width" : null,
+      "label" : "Topic Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "topic_text" : "FEATURED BLOG",
+      "topic_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "id" : "99e8b049-5a78-0e46-1aa5-b8ec2a75300b",
+    "name" : "title",
+    "display_width" : null,
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "H3 Heading Module - Case Study Title"
+  }, {
+    "id" : "1ccd9e0f-7999-45e8-38c2-faccecdbc0f7",
+    "name" : "content",
+    "display_width" : null,
+    "label" : "Content",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</span></p>"
+  }, {
+    "id" : "9a238842-9258-ae5e-97b4-62d34c8f8b9b",
+    "name" : "button",
+    "display_width" : null,
+    "label" : "Button",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "1882a9ca-2daf-f530-ed14-24eaccd4839f",
+      "name" : "button_text",
+      "display_width" : null,
+      "label" : "Button Text",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "default" : "READ ARTICLE"
+    }, {
+      "id" : "41c5902e-0735-cfea-753b-a0c0e62275aa",
+      "name" : "button_icon",
+      "display_width" : null,
+      "label" : "Button Icon",
+      "required" : false,
+      "locked" : false,
+      "icon_set" : "fontawesome-5.14.0",
+      "type" : "icon",
+      "default" : {
+        "name" : "Alternate File",
+        "unicode" : "f15c",
+        "type" : "REGULAR"
+      }
+    }, {
+      "id" : "011b0e35-2f2e-c20c-491d-aca4b081a2e2",
+      "name" : "button_link",
+      "display_width" : null,
+      "label" : "Button Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "button_text" : "READ ARTICLE",
+      "button_icon" : {
+        "name" : "Alternate File",
+        "unicode" : "f15c",
+        "type" : "REGULAR"
+      },
+      "button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "id" : "b339968e-257a-ee39-0f9d-f1644d5fa6cd",
+    "name" : "image",
+    "display_width" : null,
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto_custom_max",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/Maven%20Advize/case-studies-main-featured.jpg",
+      "alt" : "case-studies-main-featured",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 427,
+      "max_width" : 640,
+      "max_height" : 427
+    }
+  }, {
+    "id" : "275bace5-2b97-8c56-cd27-2b608a65a3e7",
+    "name" : "image_height",
+    "display_width" : null,
+    "label" : "Image Height",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "b339968e-257a-ee39-0f9d-f1644d5fa6cd",
+      "controlling_field_path" : null,
+      "controlling_value_regex" : null,
+      "property" : null,
+      "operator" : "NOT_EMPTY",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "default" : 385
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "date" : "",
+    "author" : "",
+    "topic" : {
+      "topic_text" : "FEATURED BLOG",
+      "topic_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    },
+    "title" : "H3 Heading Module - Case Study Title",
+    "content" : "<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</span></p>",
+    "button" : {
+      "button_text" : "READ ARTICLE",
+      "button_icon" : {
+        "name" : "Alternate File",
+        "unicode" : "f15c",
+        "type" : "REGULAR"
+      },
+      "button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    },
+    "image" : {
+      "size_type" : "auto_custom_max",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/Maven%20Advize/case-studies-main-featured.jpg",
+      "alt" : "case-studies-main-featured",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 427,
+      "max_width" : 640,
+      "max_height" : 427
+    },
+    "image_height" : 385
+  }
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "display_width" : null,
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "915367b6-8a56-57d1-d16f-89707e4b6bbf",
+    "name" : "tagline",
+    "display_width" : null,
+    "label" : "Tagline",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "38618216-2d18-c4fc-12a8-dcb80367fae0",
+      "name" : "tag_line_color",
+      "display_width" : null,
+      "label" : "Tag Line Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "391c1570-8cf3-7f3b-ce2a-215f85c6ae14",
+      "name" : "tag_line_divider",
+      "display_width" : null,
+      "label" : "Tag Line Divider",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : false
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "tag_line_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "tag_line_divider" : false
+    }
+  }, {
+    "id" : "21c7f3ab-e9dc-6a94-7095-2476418db2c4",
+    "name" : "heading",
+    "display_width" : null,
+    "label" : "Heading",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "72538caa-3037-5bba-f93d-64b96886b336",
+      "name" : "heading_type",
+      "display_width" : null,
+      "label" : "Heading Type",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "<h1>", "H1" ], [ "<h2>", "H2" ], [ "<h3>", "H3" ], [ "<h4>", "H4" ], [ "<h5>", "H5" ], [ "<h6>", "H6" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "type" : "choice",
+      "default" : "<h1>"
+    }, {
+      "id" : "cd3f0e28-d05a-d542-9052-f31c97feaaee",
+      "name" : "heading_color",
+      "display_width" : null,
+      "label" : "Heading Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "7896ba64-ae0f-c9a9-5128-256ae8dacbdf",
+      "name" : "heading_font_size",
+      "display_width" : null,
+      "label" : "Heading Font Size",
+      "required" : false,
+      "locked" : false,
+      "display" : "text",
+      "max" : 100,
+      "step" : 1,
+      "type" : "number",
+      "default" : 0
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "heading_type" : "<h1>",
+      "heading_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "heading_font_size" : 0
+    }
+  }, {
+    "id" : "7769d641-3433-b135-6b0e-c7adf3e8af73",
+    "name" : "card",
+    "display_width" : null,
+    "label" : "Card",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "284f6ad5-2ed4-9dc2-d90b-ab163197fcf6",
+      "controlling_field_path" : null,
+      "controlling_value_regex" : "true",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "children" : [ {
+      "id" : "57a3eadf-1c42-e5e6-c463-cbb637cf6083",
+      "name" : "title",
+      "display_width" : null,
+      "label" : "Title",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "2c2a2664-fb8b-3bfb-b162-0e90ee54b7fd",
+        "name" : "card_title_color",
+        "display_width" : null,
+        "label" : "Card Title Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "5eb5a284-64c7-5cd3-78bd-1d98e7724da6",
+        "name" : "card_title_font_size",
+        "display_width" : null,
+        "label" : "Card Title Font Size",
+        "required" : false,
+        "locked" : false,
+        "display" : "text",
+        "max" : 100,
+        "step" : 1,
+        "type" : "number",
+        "default" : 0
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "card_title_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_title_font_size" : 0
+      }
+    }, {
+      "id" : "d7f59b02-f5bd-0999-3929-df2c984a600a",
+      "name" : "card_author_color",
+      "display_width" : null,
+      "label" : "Card Author Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : 100
+      }
+    }, {
+      "id" : "51c8d318-622b-7339-98f8-8c827184789d",
+      "name" : "card_date_color",
+      "display_width" : null,
+      "label" : "Card Date Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : 100
+      }
+    }, {
+      "id" : "0af73aa7-253a-9674-f2f7-5723c36d5c97",
+      "name" : "card_topic_color",
+      "display_width" : null,
+      "label" : "Card Topic Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "d94986c4-4263-41a6-2f48-334b8bb04ad0",
+      "name" : "card_background_color",
+      "display_width" : null,
+      "label" : "Card Background Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#FFFFFF",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "9671f05c-8ab3-169e-82bb-b90181448466",
+      "name" : "button",
+      "display_width" : null,
+      "label" : "Button",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "aa2e59e5-f0a6-94f3-6960-5a6ca019df59",
+        "name" : "button_background_color",
+        "display_width" : null,
+        "label" : "Button Background Color",
+        "required" : false,
+        "locked" : false,
+        "visibility" : {
+          "controlling_field" : "72567298-423b-6de3-7c90-23f3221d7261",
+          "controlling_field_path" : null,
+          "controlling_value_regex" : "false",
+          "property" : null,
+          "operator" : "EQUAL",
+          "access" : null,
+          "hidden_subfields" : null
+        },
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "23151e02-31cc-08d0-0201-69d3b037bbe3",
+        "name" : "button_border_color",
+        "display_width" : null,
+        "label" : "Button Border Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "0d36ed01-0b9f-a80b-62ea-0aff0431ce6f",
+        "name" : "button_text_color",
+        "display_width" : null,
+        "label" : "Button Text Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "72567298-423b-6de3-7c90-23f3221d7261",
+        "name" : "button_outline",
+        "display_width" : null,
+        "label" : "Button Outline",
+        "required" : false,
+        "locked" : false,
+        "display" : "checkbox",
+        "type" : "boolean",
+        "default" : false
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "button_background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_border_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_outline" : false
+      }
+    }, {
+      "id" : "2a8aac1a-dfcf-273a-873d-d1d3f2d97459",
+      "name" : "corner",
+      "display_width" : null,
+      "label" : "Corner",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "e539670f-01c9-ae8c-d9f3-01550af9c9e9",
+        "name" : "radius",
+        "display_width" : null,
+        "label" : "Radius",
+        "required" : false,
+        "locked" : false,
+        "display" : "text",
+        "step" : 1,
+        "type" : "number"
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "title" : {
+        "card_title_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_title_font_size" : 0
+      },
+      "card_author_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "card_date_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "card_topic_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "card_background_color" : {
+        "color" : "#FFFFFF",
+        "opacity" : 100
+      },
+      "button" : {
+        "button_background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_border_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_outline" : false
+      },
+      "corner" : { }
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "tagline" : {
+      "tag_line_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "tag_line_divider" : false
+    },
+    "heading" : {
+      "heading_type" : "<h1>",
+      "heading_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "heading_font_size" : 0
+    },
+    "card" : {
+      "title" : {
+        "card_title_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_title_font_size" : 0
+      },
+      "card_author_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "card_date_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "card_topic_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "card_background_color" : {
+        "color" : "#FFFFFF",
+        "opacity" : 100
+      },
+      "button" : {
+        "button_background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_border_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "button_outline" : false
+      },
+      "corner" : { }
+    }
+  }
+} ]

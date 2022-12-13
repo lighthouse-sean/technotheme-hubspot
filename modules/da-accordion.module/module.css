@@ -1,0 +1,160 @@
+.da-accordion.text-center .panel-title .tagline-wrap {
+  justify-content: start;
+}
+
+.da-accordion .fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+
+.da-accordion .fade.in {
+  opacity: 1;
+}
+
+.da-accordion .collapse {
+  display: none;
+}
+
+.da-accordion .collapse.in {
+  display: block;
+}
+
+.da-accordion .collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  -o-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-duration: 0.35s;
+  -o-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+.da-accordion .panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.da-accordion .panel-body {
+  padding: 20px;
+}
+
+.da-accordion .panel-body .content {
+  padding: 10px 0 0 40px;
+}
+ 
+.da-accordion .panel-body .content ul,
+.da-accordion .panel-body .content ol{
+  padding-left: 0px;
+}
+
+.da-accordion .panel-body:before,
+.da-accordion .panel-body:after {
+  display: table;
+  content: " ";
+}
+
+.da-accordion .panel-body:after {
+  clear: both;
+}
+
+.da-accordion.panel-heading {
+  padding: 20px 20px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.da-accordion .panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.da-accordion .panel-title > a {
+  text-decoration: none; 
+  display: block;
+  position: relative;
+  padding-left: 40px;
+}
+
+.da-accordion .panel-title .icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.da-accordion .panel-title>a[aria-expanded="false"] .icon {
+  transform: none;
+}
+
+.da-accordion .panel-title>a[aria-expanded="true"] .icon {
+  transform: rotate(180deg);
+}
+
+.da-accordion .panel-group .panel {
+  border-radius: 4px;
+}
+
+.da-accordion .panel-group .panel:last-child {
+  margin-bottom: 0;
+}
+
+.da-accordion .panel-group .panel+.panel {
+  margin-top: 5px;
+}
+
+.da-accordion .panel-group .panel-heading {
+  border-bottom: 0;
+}
+
+.da-accordion .panel-group .panel-heading+.panel-collapse>.panel-body,
+.da-accordion .panel-group .panel-heading+.panel-collapse>.list-group {
+  border-top: 1px solid #ddd;
+}
+
+.da-accordion .panel-group .panel-footer {
+  border-top: 0;
+}
+
+.da-accordion .panel-group .panel-footer+.panel-collapse .panel-body {
+  border-bottom: 1px solid #ddd;
+}
+
+.da-accordion .panel-default {
+  border-color: #ddd;
+  border: 0;
+  border-bottom: 2px solid #f2f2f4;
+}
+
+.da-accordion .panel-default>.panel-heading {
+  background-color: transparent;
+  border-bottom: 0;
+  padding: 0;
+}
+
+.da-accordion .panel-default>.panel-heading+.panel-collapse>.panel-body {
+  border: 0;
+  padding: 10px 0 0;
+}
+
+@media(max-width:767px) { 
+  
+  .da-accordion .panel-title {
+    font-size: 20px; 
+  }
+  
+}

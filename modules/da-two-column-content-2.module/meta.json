@@ -1,0 +1,8 @@
+{
+  "global" : false,
+  "icon" : "fontawesome-5.14.0:Pen%20Square:SOLID",
+  "host_template_types" : [ "PAGE", "BLOG_LISTING" ],
+  "module_id" : 95246076686,
+  "label" : "Two Column Content with Custom List",
+  "is_available_for_new_content" : true
+}

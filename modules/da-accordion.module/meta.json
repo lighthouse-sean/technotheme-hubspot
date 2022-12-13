@@ -1,0 +1,13 @@
+{
+  "global" : false,
+  "icon" : "fontawesome-5.14.0:Expand:SOLID",
+  "host_template_types" : [ "PAGE", "BLOG_LISTING" ],
+  "module_id" : 95246015269,
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../../@marketplace/Juice_Tactics_Snacks/Krazy/js/collapse.js",
+    "name" : "collapse.js"
+  } ],
+  "label" : "Accordion",
+  "is_available_for_new_content" : true
+}

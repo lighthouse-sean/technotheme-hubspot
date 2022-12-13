@@ -1,0 +1,585 @@
+[ {
+  "id" : "0d43f487-b08a-2055-2fa2-f372b626802f",
+  "name" : "tag_line",
+  "display_width" : null,
+  "label" : "Tag Line",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "TWO COLUMN CONTENT 3"
+}, {
+  "id" : "94106b32-a826-1927-fd1a-185cf7be5b9f",
+  "name" : "heading_text",
+  "display_width" : null,
+  "label" : "Heading Text",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "A strong headline is critical for creating a successful landing page."
+}, {
+  "id" : "27f9d1dd-c759-1d14-27a2-6d9eaf779196",
+  "name" : "rich_text",
+  "display_width" : null,
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<h3><span>Add a persuasive sub-headline in here.</span></h3>\n<p><span><strong>Add an explanation</strong>&nbsp;- Make visitors understand exactly what the topic is about, why you addressing the topic and how you're going to do it. Keep it short and sweet.<strong><br></strong></span></p>\n<ul role=\"list\">\n<li><span>Why should visitors download it?</span></li>\n<li><span>What are visitors going to benefit from it?</span></li>\n<li><span>Proof that it's really sweet.</span></li>\n</ul>"
+}, {
+  "id" : "9a238842-9258-ae5e-97b4-62d34c8f8b9b",
+  "name" : "button",
+  "display_width" : null,
+  "label" : "Button",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "1882a9ca-2daf-f530-ed14-24eaccd4839f",
+    "name" : "button_text",
+    "display_width" : null,
+    "label" : "Button Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "GET STARTED"
+  }, {
+    "id" : "39423984-2de5-40ef-af37-60e862bbd41a",
+    "name" : "button_icon",
+    "display_width" : null,
+    "label" : "Button Icon",
+    "required" : false,
+    "locked" : false,
+    "icon_set" : "fontawesome-5.14.0",
+    "type" : "icon",
+    "default" : { }
+  }, {
+    "id" : "011b0e35-2f2e-c20c-491d-aca4b081a2e2",
+    "name" : "button_link",
+    "display_width" : null,
+    "label" : "Button Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "button_text" : "GET STARTED",
+    "button_icon" : { },
+    "button_link" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }
+}, {
+  "id" : "59774aee-9a4e-5c59-d478-fdc5e2aa00af",
+  "name" : "form",
+  "display_width" : null,
+  "label" : "Form",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "a5c6ccab-a816-f23c-f90d-6a147af03b56",
+    "name" : "type",
+    "display_width" : null,
+    "label" : "Type",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "meeting", "Meeting" ], [ "form", "Form" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "type" : "choice",
+    "default" : "meeting"
+  }, {
+    "id" : "7a2283f2-d80f-57b7-4c1f-fa0d22e7a248",
+    "name" : "meeting",
+    "display_width" : null,
+    "label" : "Meeting",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a5c6ccab-a816-f23c-f90d-6a147af03b56",
+      "controlling_field_path" : null,
+      "controlling_value_regex" : "meeting",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "embeddable" : false,
+    "type" : "meeting",
+    "default" : "https://meetings.hubspot.com/melvin-cruz"
+  }, {
+    "id" : "bb0f77ef-cb02-8be3-0543-413a70966a1a",
+    "name" : "form",
+    "display_width" : null,
+    "label" : "Form",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "a5c6ccab-a816-f23c-f90d-6a147af03b56",
+      "controlling_field_path" : null,
+      "controlling_value_regex" : "form",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "form",
+    "default" : {
+      "form_id" : "794694fc-f54f-4ddf-b0cd-e20af49c06c1",
+      "response_type" : "inline",
+      "message" : "Thanks for submitting the form.",
+      "gotowebinar_webinar_key" : null,
+      "form_type" : "HUBSPOT"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "type" : "meeting",
+    "meeting" : "https://meetings.hubspot.com/melvin-cruz",
+    "form" : {
+      "form_id" : "794694fc-f54f-4ddf-b0cd-e20af49c06c1",
+      "response_type" : "inline",
+      "message" : "Thanks for submitting the form.",
+      "gotowebinar_webinar_key" : null,
+      "form_type" : "HUBSPOT"
+    }
+  }
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "display_width" : null,
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "55ac54ce-44f0-4adf-3b31-27f7141d5129",
+    "name" : "content_type",
+    "display_width" : null,
+    "label" : "Content Type",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "right-form", "Right Form" ], [ "left-form", "Left Form" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "type" : "choice",
+    "default" : "right-form"
+  }, {
+    "id" : "1a7d17ba-f3ef-9f9c-210a-db456e3c86e4",
+    "name" : "tagline",
+    "display_width" : null,
+    "label" : "Tagline",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "38618216-2d18-c4fc-12a8-dcb80367fae0",
+      "name" : "tag_line_color",
+      "display_width" : null,
+      "label" : "Tag Line Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : 100
+      }
+    }, {
+      "id" : "2e99991c-742a-2c8d-134b-b59eb7ff639b",
+      "name" : "tag_line_divider",
+      "display_width" : null,
+      "label" : "Tag Line Divider",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : false
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "tag_line_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "tag_line_divider" : false
+    }
+  }, {
+    "id" : "96ad0bc7-6ed3-4d15-a96a-19c1f2ad458b",
+    "name" : "heading",
+    "display_width" : null,
+    "label" : "Heading",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "72538caa-3037-5bba-f93d-64b96886b336",
+      "name" : "heading_type",
+      "display_width" : null,
+      "label" : "Heading Type",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "<h1>", "H1" ], [ "<h2>", "H2" ], [ "<h3>", "H3" ], [ "<h4>", "H4" ], [ "<h5>", "H5" ], [ "<h6>", "H6" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "type" : "choice",
+      "default" : "<h1>"
+    }, {
+      "id" : "cd3f0e28-d05a-d542-9052-f31c97feaaee",
+      "name" : "heading_color",
+      "display_width" : null,
+      "label" : "Heading Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : 100
+      }
+    }, {
+      "id" : "7896ba64-ae0f-c9a9-5128-256ae8dacbdf",
+      "name" : "heading_font_size",
+      "display_width" : null,
+      "label" : "Heading Font Size",
+      "required" : false,
+      "locked" : false,
+      "display" : "text",
+      "max" : 100,
+      "step" : 1,
+      "type" : "number",
+      "default" : 60
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "heading_type" : "<h1>",
+      "heading_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "heading_font_size" : 60
+    }
+  }, {
+    "id" : "e4193523-cab8-9726-f9fb-a65b73a169e5",
+    "name" : "form",
+    "display_width" : null,
+    "label" : "Form",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "85cfad15-320e-def0-d054-95991b29e235",
+      "name" : "button",
+      "display_width" : null,
+      "label" : "Button",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "b4ec8bd5-b921-1f88-c992-ec48227f5c4b",
+        "name" : "form_button_color",
+        "display_width" : null,
+        "label" : "Form Button Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "26eb4586-3c2d-92e2-06d2-85665766b6da",
+        "name" : "form_button_text_color",
+        "display_width" : null,
+        "label" : "Form Button Text Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "form_button_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "form_button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }
+    }, {
+      "id" : "0c151af3-70b8-6f4c-d441-7679ff59fa56",
+      "name" : "background",
+      "display_width" : null,
+      "label" : "Background",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "58b207c3-8aed-97ac-ff2e-12a6404c318e",
+        "name" : "bg_color",
+        "display_width" : null,
+        "label" : "Background Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "bg_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }
+    }, {
+      "id" : "69f95780-64ec-cc39-814d-8c07d26ca732",
+      "name" : "border",
+      "display_width" : null,
+      "label" : "Border",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "53ded15f-e64d-af96-176c-7e8ac03e6b98",
+        "name" : "form_border",
+        "display_width" : null,
+        "label" : "Form Border",
+        "required" : false,
+        "locked" : false,
+        "allow_custom_border_sides" : false,
+        "type" : "border",
+        "default" : { }
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "form_border" : { }
+      }
+    }, {
+      "id" : "9b377feb-87ce-9aff-dc5b-ad6957c45bce",
+      "name" : "spacing",
+      "display_width" : null,
+      "label" : "Spacing",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "e42a8acf-dd6a-b259-d363-e4133b09ce55",
+        "name" : "form_spacing",
+        "display_width" : null,
+        "label" : "Spacing",
+        "required" : false,
+        "locked" : false,
+        "type" : "spacing",
+        "default" : { }
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "button" : {
+        "form_button_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "form_button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      },
+      "background" : {
+        "bg_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      },
+      "border" : {
+        "form_border" : { }
+      },
+      "spacing" : { }
+    }
+  }, {
+    "id" : "8a96a4c9-9a16-68cc-bc35-868d79e13320",
+    "name" : "button",
+    "display_width" : null,
+    "label" : "Button",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "1b8f0127-2ec1-17a5-b500-888eae88e44b",
+      "name" : "button_outline",
+      "display_width" : null,
+      "label" : "Button Outline",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : false
+    }, {
+      "id" : "c9e76b66-ae8b-14e0-1171-b0a5cff587ce",
+      "name" : "button_text_color",
+      "display_width" : null,
+      "label" : "Button Text Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "87f5b9c1-a9ec-c6a5-e313-593d405b5122",
+      "name" : "button_border_color",
+      "display_width" : null,
+      "label" : "Button Border Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "4b368ab6-3509-fe04-8854-2dbb27fde7b0",
+      "name" : "button_background_color",
+      "display_width" : null,
+      "label" : "Button Background Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : "1b8f0127-2ec1-17a5-b500-888eae88e44b",
+        "controlling_field_path" : null,
+        "controlling_value_regex" : "false",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null,
+        "hidden_subfields" : null
+      },
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "button_outline" : false,
+      "button_text_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_border_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_background_color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "content_type" : "right-form",
+    "tagline" : {
+      "tag_line_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "tag_line_divider" : false
+    },
+    "heading" : {
+      "heading_type" : "<h1>",
+      "heading_color" : {
+        "color" : null,
+        "opacity" : 100
+      },
+      "heading_font_size" : 60
+    },
+    "form" : {
+      "button" : {
+        "form_button_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "form_button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      },
+      "background" : {
+        "bg_color" : {
+          "color" : null,
+          "opacity" : null
+        }
+      },
+      "border" : {
+        "form_border" : { }
+      },
+      "spacing" : { }
+    },
+    "button" : {
+      "button_outline" : false,
+      "button_text_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_border_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_background_color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
+  }
+} ]

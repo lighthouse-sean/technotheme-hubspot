@@ -1,0 +1,33 @@
+.da-logo-slider .slick-slide img {
+  margin: 0 auto; 
+}
+
+/* Adjust left & right margins based on .slide padding */
+.da-logo-slider .customer-logos {
+  margin: 0 -20px;
+}
+
+.da-logo-slider .customer-logos .slide {
+  padding: 0 20px; 
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.da-logo-slider .customer-logos .slide img.filter {
+  -webkit-filter: brightness(200%);
+  filter: brightness(200%);
+}
+
+.da-logo-slider .slick-dots li button:before {
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+.da-logo-slider .slick-dots li.slick-active button:before {
+  opacity: 1;
+}
+
+.da-logo-slider .slick-dots {
+  bottom: -50px;
+}

@@ -1,0 +1,158 @@
+{% if module.styles.section.section_show_hide %}
+{% require_css %}
+<style>
+
+  .da-blog-post-hero-case-study {
+    {% if module.styles.section.section_background_type == "image" %}
+    background-image: url({{ content.post_list_summary_featured_image }});
+    {{ module.styles.section.section_background_image.css }}
+    {% elif module.styles.section.section_background_type == "gradient" %}
+    background: {{ module.styles.section.section_background_gradient.css }};
+    {% endif %}
+    {{ module.styles.section.section_spacing.desktop.css }}
+  }
+
+  @media (max-width: 767px) {
+    .da-blog-post-hero-case-study {
+      {{ module.styles.section.section_spacing.mobile.css }}
+    }
+  }
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-blog-post-hero-case-study .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-blog-post-hero-case-study .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-blog-post-hero-case-study .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.author.date_color.color %}
+  .da-blog-post-hero-case-study .list-meta-date {
+    color: rgba({{ module.styles.author.date_color.color|convert_rgb }}, {{ module.styles.author.date_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.author.date_color.color|convert_rgb }}, {{ module.styles.author.date_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.author.topic_color.color %}
+  .da-blog-post-hero-case-study .topic {
+    color: rgba({{ module.styles.author.topic_color.color|convert_rgb }}, {{ module.styles.author.topic_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.author.author_color.color %}
+  .da-blog-post-hero-case-study .blog-author a {
+    color: rgba({{ module.styles.author.author_color.color|convert_rgb }}, {{ module.styles.author.author_color.opacity / 100 }});
+  }
+  {% set blog_athor_link = module.styles.author.author_color.color %}
+  .da-blog-post-hero-case-study .blog-author a:hover,
+  .da-blog-post-hero-case-study .blog-author a:focus {
+    color: {{ color_variant(blog_athor_link, -40) }};
+  }
+  {% endif %}
+
+  {% if module.styles.featured_image.radius >= 0 %}
+  .da-blog-post-hero-case-study .featured-image{
+    border-radius: {{ module.styles.featured_image.radius ~ "px" }};
+  }
+  {% endif %}
+
+</style>
+{% end_require_css %}
+
+<section class="da-blog-post-hero-case-study">
+  <div class="content-wrapper">
+    <div class="max-width-950 mr-auto ml-auto text-left">
+
+      {% if module.date_and_reading_min %}
+      <div class="list-meta mb-20">
+        {% if content.publish_date %}
+        <div class="list-meta-date font-weight-500 font-size-16">
+          {% icon 
+            name="Calendar",
+            style="SOLID",
+            unicode="f133",
+            icon_set="fontawesome-5.14.0",
+            purpose="decorative",
+            title="Calender",
+            no_wrapper="true",
+            width="20",
+            height="20"
+          %}
+          {{ content.publish_date|datetimeformat('%B %e, %Y') }}
+        </div>
+        {% endif %}
+
+        <div class="list-meta-read-min font-weight-500 font-size-16">
+          {% icon 
+            name="Clock",
+            style="SOLID",
+            unicode="f133",
+            icon_set="fontawesome-5.14.0",
+            purpose="decorative",
+            title="Clock",
+            no_wrapper="true",
+            width="20",
+            height="20"
+          %}
+          {{ content.post_body|wordcount|divide(300) }} min read time
+        </div>
+
+      </div>
+      {% endif %}
+
+      {% if content.name %}
+      <div class="heading-text">
+        <h1 class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+          {{ content.name }}
+        </h1>
+      </div>
+      {% endif %}
+
+      {% if module.custom_summary %}
+      <div class="desc">
+        {{ module.custom_summary }}
+      </div>
+      {% endif %}
+
+      {% if module.author && module.tags %}
+      <div class="list-meta mt-20 mb-20">
+        {% if content.blog_post_author %}
+        <div class="meta-blog-author mb-20">
+          <img src="{{ content.blog_post_author.avatar }}" alt="{{ content.blog_post_author.display_name }}" width="48" height="48">
+          <a href="{{ blog_author_url(group.id, content.blog_post_author.slug) }}" rel="author">
+            {{ content.blog_post_author.display_name }}
+          </a>
+        </div>
+        {% endif %} 
+
+        {% if module.tags %}
+        {% if content.topic_list %}
+        <div class="list-meta-item">
+          {% for topic in content.topic_list %}
+          <li class="list-inline-item">
+            <a class="button px-10 py-5 font-size-16" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name }}</a>{% if not loop.last %},{% endif %}
+          </li>
+          {% endfor %}
+        </div>
+        {% endif %} 
+        {% endif %}
+
+      </div>
+      {% endif %}
+
+      {% if module.featured_image %}
+      <img src="{{ content.featured_image }}" class="featured-image" alt="{{ content.featured_image_alt_text | escape }}">
+      {% endif %}
+
+    </div>
+
+  </div>
+</section>
+
+{% endif %}

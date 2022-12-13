@@ -1,0 +1,147 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  .da-systems-404-hero {
+    {% if module.styles.section_background_type == "image" %}
+    background-image: url({{ content.post_list_summary_featured_image }});
+    {{ module.styles.section_background_image.css }}
+    {% elif module.styles.section_background_type == "gradient" %}
+    background: {{ module.styles.section_background_gradient.css }};
+    {% endif %}
+    {{ module.styles.section_spacing.desktop.css }}
+  }
+
+  @media (max-width: 767px) {
+
+    .da-systems-404-hero {
+      {{ module.styles.section_spacing.mobile.css }}
+    }
+
+  }
+  {% if module.styles.tag_line_color.color %}
+  .da-systems-404-hero .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tag_line_color.color|convert_rgb }}, {{ module.styles.tag_line_color.opacity / 100 }});
+  }
+  .da-systems-404-hero .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tag_line_color.color|convert_rgb }}, {{ module.styles.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading_color.color %}
+  .da-systems-404-hero .heading-text .heading-color {
+    color: rgba({{ module.styles.heading_color.color|convert_rgb }}, {{ module.styles.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  .da-systems-404-hero .heading-text .heading-type {
+    font-size: {{ module.styles.heading_font_size }}px;
+    line-height: 1;
+  }
+
+  {% if module.styles.date_color.color %}
+  .da-systems-404-hero .date {
+    color: rgba({{ module.styles.date_color.color|convert_rgb }}, {{ module.styles.date_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.date_color.color|convert_rgb }}, {{ module.styles.date_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.topic_color.color %}
+  .da-systems-404-hero .topic {
+    color: rgba({{ module.styles.topic_color.color|convert_rgb }}, {{ module.styles.topic_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.author_color.color %}
+  .da-systems-404-hero .blog-author a {
+    color: rgba({{ module.styles.author_color.color|convert_rgb }}, {{ module.styles.author_color.opacity / 100 }});
+  }
+  {% set blog_athor_link = module.styles.author_color.color %}
+  .da-systems-404-hero .blog-author a:hover,
+  .da-systems-404-hero .blog-author a:focus {
+    color: {{ color_variant(blog_athor_link, -40) }};
+  }
+  {% endif %}
+
+  {% if module.styles.social_share_icon_color.color %}
+  .social-share .social-icon li a svg {
+    fill: rgba({{ module.styles.social_share_icon_color.color|convert_rgb }}, {{ module.styles.social_share_icon_color.opacity / 100 }});
+  }
+  {% set social_icon_color_custom = module.styles.social_share_icon_color.color %}
+  .social-icon li a:hover svg, 
+  .social-icon li a:focus svg {
+    fill: {{ color_variant(social_icon_color_custom, -40) }};
+  }
+  {% else %}
+  .social-share .social-icon li a svg {
+    fill: {{ theme.global_colors.secondary_color.color }} ;
+  }
+
+  {% set social_icon_color = theme.global_colors.secondary_color.color %}
+  .social-share .social-icon li a:hover svg,
+  .social-share .social-icon li a:focus svg {
+    fill: {{ color_variant(social_icon_color, -40) }};
+  }
+  {% endif %}
+
+  {% if module.styles.social_share_text_color.color %}
+  .social-share .social-share-text {
+    color: rgba({{ module.styles.social_share_text_color.color|convert_rgb }}, {{ module.styles.social_share_text_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-systems-404-hero">
+  <div class="content-wrapper">
+    <div class="max-width-500 mr-auto ml-auto text-center error-page" data-error="404">
+      {% if module.tag_line %}
+      <div class="tagline-wrap mb-15">
+        <div class="tagline primary-color">
+          {{ module.tag_line }}
+        </div>
+        <div class="tagline-line primary-bg-color ml-15"></div>
+      </div>
+      {% endif %}
+
+      {% if module.heading_text %}
+      <div class="heading-text mb-40">
+        <h1 class="heading-type heading-color font-size-{{ module.styles.heading_font_size }}">
+          {{ module.heading_text }}
+        </h1>
+      </div>
+      {% endif %}
+
+      {% if module.rich_text %}
+      <div class="mb-50">
+        {{ module.rich_text }}
+      </div>
+      {% endif %}
+
+
+      {% if module.button.button_text %}
+      <div>
+        {% set href = module.button.button_link.url.href %}
+        {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+        {% set href = "mailto:" + href %}
+        {% endif %}
+        {% set rel = [] %}
+        {% if module.button.button_link.no_follow %}
+        {% do rel.append("nofollow") %}
+        {% endif %}
+        {% if module.button.button_link.open_in_new_tab %}
+        {% do rel.append("noopener") %}
+        {% endif %}
+        <a class="button" href="{{ href }}"
+           {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+           {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+           >
+          {{ module.button.button_text }}
+        </a>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>

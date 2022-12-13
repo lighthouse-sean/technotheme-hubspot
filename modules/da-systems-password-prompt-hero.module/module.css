@@ -1,0 +1,77 @@
+.da-systems-password-prompt-hero .content-wrapper {
+  position: relative; 
+}
+
+.da-systems-password-prompt-hero .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-systems-password-prompt-hero .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-systems-password-prompt-hero .form { }
+
+.da-systems-password-prompt-hero .page-header {
+  font-size: 13px;
+}
+
+.da-systems-password-prompt-hero .page-header {
+  border-bottom: 1px solid #eceff1;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.da-systems-password-prompt-hero .page-header h2 {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px 12px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: rgba(144,164,174,0.5);
+  border-radius: 200px;
+  background-color: transparent;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: rgba(144,164,174,0.5);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 300;
+}
+
+.da-systems-password-prompt-hero #email-prefs-form #content .header {
+  font-size: 24px;
+}
+
+.da-systems-password-prompt-hero .email-prefs .item .item-inner {
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border: 1px solid #eceff1;
+  border-radius: 12px;
+  background-color: hsla(0,0%,96.5%,0.4);
+}
+
+.da-systems-password-prompt-hero .email-prefs .item .item-inner p {
+  margin: 5px 0px 0px 20px;
+  font-size: 13px;
+}
+
+.da-systems-password-prompt-hero .subscribe-options .header+p {
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border: 1px solid #eceff1;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.da-systems-password-prompt-hero .hs-button {
+  margin-top: 20px;
+}
+
+.da-systems-password-prompt-hero .success {
+  font-size: 24px;
+}

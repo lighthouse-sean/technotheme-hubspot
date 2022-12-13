@@ -1,0 +1,199 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  .da-animated-counter .card {
+    {% if module.styles.card.background.card_background_type == "image" %}
+    {# can only be used as a style field #}
+    {{ module.styles.card.background.card_background_image.css }} 
+    {% elif module.styles.card.background.card_background_type == "gradient" %}
+    {# can only be used as a style field #}
+    background: {{ module.styles.card.background.card_background_gradient.css }}; 
+    {% endif %}
+    {% if module.styles.card.corner.radius >= 0 %}
+    border-radius: {{ module.styles.card.corner.radius ~ "px" }};
+    {% endif %}
+    {# can only be used as a style field #}
+    {{ module.styles.card.border.card_border.css }} 
+  }
+
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-animated-counter .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-animated-counter .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-animated-counter .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {# Button #}
+  {% if module.styles.button.button_outline %}
+  {% if module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  {# If Button Outline #}
+  .button-outline {
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button-outline:hover,
+  .button-outline:focus,
+  .button-outline:active {
+    background-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button.button_background_color.color or module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  .button, 
+  .cta_button {
+    background-color: rgba({{ module.styles.button.button_background_color.color|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  .button:hover, 
+  .button:focus,
+  .cta_button:hover,
+  .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button:active, 
+  .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {% if module.styles.card.number.card_number_color.color %}
+  .da-animated-counter .card .card-number {
+    color: rgba({{ module.styles.card.number.card_number_color.color|convert_rgb }}, {{ module.styles.card.number.card_number_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {% if module.styles.card.number_suffix.card_number_suffix_color.color %}
+  .da-animated-counter .card .card-number-suffix {
+    color: rgba({{ module.styles.card.number_suffix.card_number_suffix_color.color|convert_rgb }}, {{ module.styles.card.number_suffix.card_number_suffix_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {% if module.styles.card.card_content.color.color %}
+  .da-animated-counter .card .card-content * {
+    color: rgba({{ module.styles.card.card_content.color.color|convert_rgb }}, {{ module.styles.card.card_content.color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-animated-counter {% if module.styles.content_text_center %}text-center{% endif %}">
+
+  {% if module.tag_line %}
+  <div class="tagline-wrap mb-15">
+    <div class="tagline secondary-color">
+      {{ module.tag_line }}
+    </div>
+    {% if module.styles.tagline.tag_line_divider %}
+    <div class="tagline-line secondary-bg-color ml-15"></div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if module.heading_text %}
+  <div class="heading-text">
+    {{ module.styles.heading.heading_type }}
+    <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">{{ module.heading_text }}</span>
+  </div>
+  {% endif %}
+
+  {% if module.rich_text %}
+  <div class="mb-20">
+    {{ module.rich_text }}
+  </div>
+  {% endif %}
+
+  <div class="flex" id="counter-{{ name }}">
+    {% for item in module.card %}
+    <div class="col">
+      <div class="card {% if module.styles.card.background.card_background_type or module.styles.card.border.card_border %}box-shadow py-50 px-40{% endif %} {% if module.styles.card.content_alignment.card_text_center %}text-center{% else %}text-left{% endif %}">
+        <div class="card-body">
+          {% if item.card_number %}
+          <div class="secondary-color mb-10 line-height-12 font-weight-700 font-size-{{ module.styles.card.number.card_number_size }}">
+            <span class="card-number">{{ item.card_number }}</span>
+            {% if item.card_suffix %}
+            <span class="card-number-suffix line-height-12 font-size-{{ module.styles.card.number_suffix.card_number_suffix_size }}">{{ item.card_suffix }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% if item.card_content %}
+          <div class="card-content">
+            {{ item.card_content }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if module.button.button_text %}
+  <div class="mt-50">
+    {% set href = module.button.button_link.url.href %}
+    {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+    {% endif %}
+    {% set rel = [] %}
+    {% if module.button.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+    {% endif %}
+    {% if module.button.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+    {% endif %}
+    <a class="{% if module.styles.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+       {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+       {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+       >
+      {{ module.button.button_text }}
+      {% if module.button.button_icon.name %}
+      {% icon
+                name="{{ module.button.button_icon.name }}"
+                style="{{ module.button.button_icon.type }}"
+                unicode="{{ module.button.button_icon.unicode }}"
+                icon_set="{{ module.button.button_icon.icon_set }}"
+                width="16"
+                height="16"
+              %}
+      {% endif %}
+    </a>
+  </div>
+  {% endif %}
+
+</section>
+
+{% require_js position="footer" %}
+<script>
+
+  $('#counter-{{ name }}').find( ".card-number" ).each(function () {
+    $(this).prop('Counter',0).animate({
+    Counter: $(this).text()
+  }, {
+    duration: 4000,
+    easing: 'swing',
+    step: function (now) {
+      $(this).text(Math.ceil(now));
+    }
+  });
+  });
+
+</script>
+{% end_require_js %}

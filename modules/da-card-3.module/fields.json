@@ -1,0 +1,1503 @@
+[ {
+  "id" : "4b2047fa-02e4-a587-fa34-3f8625fd27ba",
+  "name" : "tag_line",
+  "display_width" : null,
+  "label" : "Tag Line",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Card Image Four Column"
+}, {
+  "id" : "1a0952b1-c555-01a7-813c-fc858d92e36a",
+  "name" : "heading_text",
+  "display_width" : null,
+  "label" : "Heading Text",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "H2 Heading Module"
+}, {
+  "id" : "2ae160e2-c857-0deb-7f91-5700ffb98d9c",
+  "name" : "rich_text",
+  "display_width" : null,
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</span></p>"
+}, {
+  "id" : "3b2df0c4-a852-559a-7836-e3b2e8500a5e",
+  "name" : "button",
+  "display_width" : null,
+  "label" : "Button",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "9c82548e-0057-76c0-41af-7a12e4dde553",
+    "name" : "button_text",
+    "display_width" : null,
+    "label" : "Button Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : ""
+  }, {
+    "id" : "3bc9ad17-3bd8-9ee8-a8d0-f23992c686c1",
+    "name" : "button_icon",
+    "display_width" : null,
+    "label" : "Button Icon",
+    "required" : false,
+    "locked" : false,
+    "icon_set" : "fontawesome-5.14.0",
+    "type" : "icon",
+    "default" : { }
+  }, {
+    "id" : "c97428f2-d581-d401-12fc-cbb7f9da2dd7",
+    "name" : "button_link",
+    "display_width" : null,
+    "label" : "Button Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "button_text" : "",
+    "button_icon" : { },
+    "button_link" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }
+}, {
+  "id" : "557e1e1a-de0e-4e86-66a8-0bd098ad8f0b",
+  "name" : "card",
+  "display_width" : null,
+  "label" : "Card",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : "eb8e053b-7aa2-576e-6c0f-322f577aaf5f",
+    "default" : 8
+  },
+  "children" : [ {
+    "id" : "068fe753-7dda-10f8-df65-401fe1763c6a",
+    "name" : "card_image",
+    "display_width" : null,
+    "label" : "Card Image",
+    "help_text" : "The recommended size is 246 by 288 or make sure they are all the same size.",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    }
+  }, {
+    "id" : "eb8e053b-7aa2-576e-6c0f-322f577aaf5f",
+    "name" : "card_title",
+    "display_width" : null,
+    "label" : "Card Title",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "John Doe"
+  }, {
+    "id" : "87cf1e8f-a3d1-6e16-0a18-e18f6c2f954d",
+    "name" : "card_text",
+    "display_width" : null,
+    "label" : "Card Text",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p><span>CEO, Co - Founder</span></p>"
+  }, {
+    "id" : "3bfb3292-7934-97ac-b703-f324c9bd068b",
+    "name" : "card_icon",
+    "display_width" : null,
+    "label" : "Card Icon",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 3
+    },
+    "children" : [ {
+      "id" : "c5abf90a-7b64-1994-c48a-a3216c94739e",
+      "name" : "card_icon",
+      "display_width" : null,
+      "label" : "Card Icon",
+      "required" : false,
+      "locked" : false,
+      "icon_set" : "fontawesome-5.14.0",
+      "type" : "icon",
+      "default" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "id" : "340e287c-d328-7c85-1de5-3219f27982cb",
+      "name" : "card_icon_link",
+      "display_width" : null,
+      "label" : "Card Icon Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      },
+      "link_field" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      },
+      "link_field" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      },
+      "link_field" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ]
+  }, {
+    "id" : "79c936d6-969e-1637-a40c-d0b286a9a6cd",
+    "name" : "card_button",
+    "display_width" : null,
+    "label" : "Card Button",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "3666830d-e2fe-8de9-9734-04c0f952ac1d",
+      "name" : "card_button_text",
+      "display_width" : null,
+      "label" : "Card Button Text",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "default" : "Button"
+    }, {
+      "id" : "a824918e-d660-7d6f-a228-eb1b8e8157d5",
+      "name" : "card_button_icon",
+      "display_width" : null,
+      "label" : "Card Button Icon",
+      "required" : false,
+      "locked" : false,
+      "icon_set" : "fontawesome-5.14.0",
+      "type" : "icon",
+      "default" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      }
+    }, {
+      "id" : "906e46e3-eb52-1334-bc9a-0bb41c7f95b5",
+      "name" : "card_button_link",
+      "display_width" : null,
+      "label" : "Card Button Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : [ {
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    },
+    "card_title" : "John Doe",
+    "card_text" : "<p><span>CEO, Co - Founder</span></p>",
+    "card_icon" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    } ],
+    "card_button" : {
+      "card_button_type" : "simple",
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    },
+    "card_title" : "John Doe",
+    "card_text" : "<p><span>CEO, Co - Founder</span></p>",
+    "card_icon" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    } ],
+    "card_button" : {
+      "card_button_type" : "simple",
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    },
+    "card_title" : "John Doe",
+    "card_text" : "<p><span>CEO, Co - Founder</span></p>",
+    "card_icon" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    } ],
+    "card_button" : {
+      "card_button_type" : "simple",
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    },
+    "card_title" : "John Doe",
+    "card_text" : "<p><span>CEO, Co - Founder</span></p>",
+    "card_icon" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    } ],
+    "card_button" : {
+      "card_button_type" : "simple",
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    },
+    "card_title" : "John Doe",
+    "card_text" : "<p><span>CEO, Co - Founder</span></p>",
+    "card_icon" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    } ],
+    "card_button" : {
+      "card_button_type" : "simple",
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    },
+    "card_title" : "John Doe",
+    "card_text" : "<p><span>CEO, Co - Founder</span></p>",
+    "card_icon" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    } ],
+    "card_button" : {
+      "card_button_type" : "simple",
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    },
+    "card_title" : "John Doe",
+    "card_text" : "<p><span>CEO, Co - Founder</span></p>",
+    "card_icon" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    } ],
+    "card_button" : {
+      "card_button_type" : "simple",
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/positive-male-worker-with-detail-on-street.jpg",
+      "alt" : "positive-male-worker-with-detail-on-street",
+      "loading" : "lazy",
+      "width" : 640,
+      "height" : 467,
+      "max_width" : 640,
+      "max_height" : 467
+    },
+    "card_title" : "John Doe",
+    "card_text" : "<p><span>CEO, Co - Founder</span></p>",
+    "card_icon" : [ {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    }, {
+      "card_icon" : {
+        "name" : "Facebook F",
+        "unicode" : "f39e",
+        "type" : "REGULAR"
+      }
+    } ],
+    "card_button" : {
+      "card_button_type" : "simple",
+      "card_button_text" : "Button",
+      "card_button_icon" : {
+        "name" : "Alternate Arrow Circle Right",
+        "unicode" : "f35a",
+        "type" : "SOLID"
+      },
+      "card_button_link" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  } ]
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "display_width" : null,
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "e3b37c96-6352-5991-8abd-727cd293cf76",
+    "name" : "tagline",
+    "display_width" : null,
+    "label" : "Tagline",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "6fede810-21c9-d88f-7fec-00e6d153d629",
+      "name" : "tag_line_color",
+      "display_width" : null,
+      "label" : "Tag Line Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "e0b63b9f-f869-d03f-99ff-6fd3dff83efd",
+      "name" : "tag_line_divider",
+      "display_width" : null,
+      "label" : "Tag Line Divider",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : false
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "tag_line_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "tag_line_divider" : false
+    }
+  }, {
+    "id" : "aabd1fc6-d321-a4e5-6a05-794ba8412f18",
+    "name" : "heading",
+    "display_width" : null,
+    "label" : "Heading",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "bff32783-04b8-4cb9-4e1f-ffc9574d87f2",
+      "name" : "heading_type",
+      "display_width" : null,
+      "label" : "Heading Type",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "<h1>", "H1" ], [ "<h2>", "H2" ], [ "<h3>", "H3" ], [ "<h4>", "H4" ], [ "<h5>", "H5" ], [ "<h6>", "H6" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "type" : "choice",
+      "default" : "<h2>"
+    }, {
+      "id" : "7e12042c-224c-d9ad-b7c6-b32ceb8f91df",
+      "name" : "heading_color",
+      "display_width" : null,
+      "label" : "Heading Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "f0c56fc5-7030-3d68-9942-236ba93582db",
+      "name" : "heading_font_size",
+      "display_width" : null,
+      "label" : "Heading Font Size",
+      "required" : false,
+      "locked" : false,
+      "display" : "text",
+      "max" : 100,
+      "step" : 1,
+      "type" : "number"
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "heading_type" : "<h2>",
+      "heading_color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }
+  }, {
+    "id" : "3e265ac1-f406-0669-d389-f43ee9082014",
+    "name" : "card",
+    "display_width" : null,
+    "label" : "Card",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "215fef71-2a00-a760-31e6-ce792865f344",
+      "name" : "image",
+      "display_width" : null,
+      "label" : "Image",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "cf0d8c93-1680-54f5-758a-84e6731b7d5a",
+        "name" : "card_image_height",
+        "display_width" : null,
+        "label" : "Card Image Height",
+        "required" : false,
+        "locked" : false,
+        "display" : "text",
+        "step" : 1,
+        "type" : "number",
+        "default" : 0
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "card_image_height" : 0
+      }
+    }, {
+      "id" : "77d4d3ec-db96-1b05-4f8e-2af1175af813",
+      "name" : "title",
+      "display_width" : null,
+      "label" : "Title",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "1191c8d1-36a6-3afc-cd52-3b9080e36340",
+        "name" : "card_title_color",
+        "display_width" : null,
+        "label" : "Card Title Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : 100
+        }
+      }, {
+        "id" : "4dd29374-d393-26ed-2278-aaed77b10f1b",
+        "name" : "card_title_size",
+        "display_width" : null,
+        "label" : "Card Title Size",
+        "required" : false,
+        "locked" : false,
+        "display" : "text",
+        "max" : 100,
+        "step" : 1,
+        "type" : "number",
+        "default" : 16
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "card_title_color" : {
+          "color" : null,
+          "opacity" : 100
+        },
+        "card_title_size" : 16
+      }
+    }, {
+      "id" : "e1fbc704-6dfe-307b-0cc1-1a7fd2fb0b1c",
+      "name" : "icon",
+      "display_width" : null,
+      "label" : "Icon",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "2a3499a1-4452-e0c1-822b-3eedd8cb6801",
+        "name" : "card_icon_color",
+        "display_width" : null,
+        "label" : "Card Icon Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : 100
+        }
+      }, {
+        "id" : "d6d69b21-1ab1-267f-42a1-d7f6fbed7469",
+        "name" : "card_icon_background_color",
+        "display_width" : null,
+        "label" : "Card Icon Background Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : 100
+        }
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "card_icon_color" : {
+          "color" : null,
+          "opacity" : 100
+        },
+        "card_icon_background_color" : {
+          "color" : null,
+          "opacity" : 100
+        }
+      }
+    }, {
+      "id" : "eee3be76-bee0-fcb4-b3d2-f26643f9d7fe",
+      "name" : "content_alignment",
+      "display_width" : null,
+      "label" : "Content Alignment",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "4f648760-d8fe-14f4-f865-5b9f746a0210",
+        "name" : "card_text_center",
+        "display_width" : null,
+        "label" : "Card Text Center",
+        "required" : false,
+        "locked" : false,
+        "display" : "checkbox",
+        "type" : "boolean",
+        "default" : false
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "card_text_center" : false
+      }
+    }, {
+      "id" : "13b3264a-299a-763f-0061-dfc46c91f9a2",
+      "name" : "button",
+      "display_width" : null,
+      "label" : "Button",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "6addfac1-956e-7ffb-6853-71124d551ee0",
+        "name" : "card_button_background_color",
+        "display_width" : null,
+        "label" : "Card Button Background Color",
+        "required" : false,
+        "locked" : false,
+        "visibility" : {
+          "controlling_field" : "e4885255-da7c-8f7a-805f-8abc148145ee",
+          "controlling_field_path" : null,
+          "controlling_value_regex" : "false",
+          "property" : null,
+          "operator" : "EQUAL",
+          "access" : null,
+          "hidden_subfields" : null
+        },
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "427d8014-0953-9c57-e957-79ca7eb973a7",
+        "name" : "card_button_border_color",
+        "display_width" : null,
+        "label" : "Card Button Border Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "eb6621b9-2457-9734-1f61-55bc7a872a77",
+        "name" : "card_button_text_color",
+        "display_width" : null,
+        "label" : "Card Button Text Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : null,
+          "opacity" : null
+        }
+      }, {
+        "id" : "e4885255-da7c-8f7a-805f-8abc148145ee",
+        "name" : "card_button_outline",
+        "display_width" : null,
+        "label" : "Card Button Outline",
+        "required" : false,
+        "locked" : false,
+        "display" : "checkbox",
+        "type" : "boolean",
+        "default" : false
+      }, {
+        "id" : "0a88b452-c682-99bc-f816-db0c4c551f6c",
+        "name" : "card_button_full_width",
+        "display_width" : null,
+        "label" : "Card Button Full Width",
+        "required" : false,
+        "locked" : false,
+        "display" : "checkbox",
+        "type" : "boolean",
+        "default" : false
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "card_button_background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_border_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_outline" : false,
+        "card_button_full_width" : false
+      }
+    }, {
+      "id" : "e4ded7fd-96b7-e9d0-8b5b-1d545336257a",
+      "name" : "corner",
+      "display_width" : null,
+      "label" : "Corner",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "9da1f177-c6eb-8768-9f8d-63091e33492b",
+        "name" : "radius",
+        "display_width" : null,
+        "label" : "Radius",
+        "required" : false,
+        "locked" : false,
+        "display" : "text",
+        "step" : 1,
+        "type" : "number"
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : { }
+    }, {
+      "id" : "4ba978fa-a4ca-1fee-ea3a-435b2a1815b3",
+      "name" : "border",
+      "display_width" : null,
+      "label" : "Border",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "70119bd8-3938-2366-2b21-79e60a69c491",
+        "name" : "card_border",
+        "display_width" : null,
+        "label" : "Card Border",
+        "required" : false,
+        "locked" : false,
+        "allow_custom_border_sides" : false,
+        "type" : "border",
+        "default" : { }
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "card_border" : { }
+      }
+    }, {
+      "id" : "935710c3-bddf-e56f-2f21-f5a7f4a775ae",
+      "name" : "background",
+      "display_width" : null,
+      "label" : "Background",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "a483d406-589e-7ab8-044e-0bbcb617f09f",
+        "name" : "card_background_type",
+        "display_width" : null,
+        "label" : "Card Background Type",
+        "required" : false,
+        "locked" : false,
+        "display" : "select",
+        "choices" : [ [ "image", "Image" ], [ "gradient", "Gradient" ] ],
+        "multiple" : false,
+        "reordering_enabled" : true,
+        "type" : "choice",
+        "default" : "gradient"
+      }, {
+        "id" : "bg_image",
+        "name" : "card_background_image",
+        "display_width" : null,
+        "label" : "Card Background Image",
+        "required" : false,
+        "locked" : false,
+        "visibility" : {
+          "controlling_field" : "a483d406-589e-7ab8-044e-0bbcb617f09f",
+          "controlling_field_path" : null,
+          "controlling_value_regex" : "image",
+          "property" : null,
+          "operator" : "EQUAL",
+          "access" : null,
+          "hidden_subfields" : null
+        },
+        "type" : "backgroundimage",
+        "default" : {
+          "src" : "https://example.com/img.png",
+          "background_position" : "MIDDLE_CENTER",
+          "background_size" : "cover"
+        }
+      }, {
+        "id" : "bg_gradient",
+        "name" : "card_background_gradient",
+        "display_width" : null,
+        "label" : "Card Background Gradient",
+        "required" : false,
+        "locked" : false,
+        "visibility" : {
+          "controlling_field" : "a483d406-589e-7ab8-044e-0bbcb617f09f",
+          "controlling_field_path" : null,
+          "controlling_value_regex" : "gradient",
+          "property" : null,
+          "operator" : "EQUAL",
+          "access" : null,
+          "hidden_subfields" : null
+        },
+        "type" : "gradient",
+        "default" : {
+          "colors" : [ {
+            "color" : {
+              "r" : 255,
+              "g" : 255,
+              "b" : 255,
+              "a" : 1
+            }
+          }, {
+            "color" : {
+              "r" : 255,
+              "g" : 255,
+              "b" : 255,
+              "a" : 1
+            }
+          } ],
+          "side_or_corner" : {
+            "verticalSide" : "BOTTOM",
+            "horizontalSide" : null
+          }
+        }
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "type" : "group",
+      "default" : {
+        "card_background_type" : "gradient",
+        "card_background_image" : {
+          "src" : "https://example.com/img.png",
+          "background_position" : "MIDDLE_CENTER",
+          "background_size" : "cover"
+        },
+        "card_background_gradient" : {
+          "colors" : [ {
+            "color" : {
+              "r" : 255,
+              "g" : 255,
+              "b" : 255,
+              "a" : 1
+            }
+          }, {
+            "color" : {
+              "r" : 255,
+              "g" : 255,
+              "b" : 255,
+              "a" : 1
+            }
+          } ],
+          "side_or_corner" : {
+            "verticalSide" : "BOTTOM",
+            "horizontalSide" : null
+          }
+        }
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "image" : {
+        "card_image_height" : 0
+      },
+      "title" : {
+        "card_title_color" : {
+          "color" : null,
+          "opacity" : 100
+        },
+        "card_title_size" : 16
+      },
+      "icon" : {
+        "card_icon_color" : {
+          "color" : null,
+          "opacity" : 100
+        },
+        "card_icon_background_color" : {
+          "color" : null,
+          "opacity" : 100
+        }
+      },
+      "content_alignment" : {
+        "card_text_center" : false
+      },
+      "button" : {
+        "card_button_background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_border_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_outline" : false,
+        "card_button_full_width" : false
+      },
+      "corner" : { },
+      "border" : {
+        "card_border" : { }
+      },
+      "background" : {
+        "card_background_type" : "gradient",
+        "card_background_image" : {
+          "src" : "https://example.com/img.png",
+          "background_position" : "MIDDLE_CENTER",
+          "background_size" : "cover"
+        },
+        "card_background_gradient" : {
+          "colors" : [ {
+            "color" : {
+              "r" : 255,
+              "g" : 255,
+              "b" : 255,
+              "a" : 1
+            }
+          }, {
+            "color" : {
+              "r" : 255,
+              "g" : 255,
+              "b" : 255,
+              "a" : 1
+            }
+          } ],
+          "side_or_corner" : {
+            "verticalSide" : "BOTTOM",
+            "horizontalSide" : null
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "46ff1af9-7be7-5a0c-6fcc-99f612de663a",
+    "name" : "button",
+    "display_width" : null,
+    "label" : "Button",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "676ef95b-bb2f-985b-075a-243bf984c8d1",
+      "name" : "button_background_color",
+      "display_width" : null,
+      "label" : "Button Background Color",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : "ff367015-7aac-dbf0-9c53-a5c4a4867d1d",
+        "controlling_field_path" : null,
+        "controlling_value_regex" : "false",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null,
+        "hidden_subfields" : null
+      },
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "039eada6-a3a0-062b-0864-eb5217fd1faf",
+      "name" : "button_border_color",
+      "display_width" : null,
+      "label" : "Button Border Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "ebda7950-af0c-3fff-dac3-b20b414bcfc6",
+      "name" : "button_text_color",
+      "display_width" : null,
+      "label" : "Button Text Color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : null,
+        "opacity" : null
+      }
+    }, {
+      "id" : "ff367015-7aac-dbf0-9c53-a5c4a4867d1d",
+      "name" : "button_outline",
+      "display_width" : null,
+      "label" : "Button Outline",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : false
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "button_background_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_border_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_text_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_outline" : false
+    }
+  }, {
+    "id" : "a1dd6e48-ff47-b124-34b1-5244e7db8f0c",
+    "name" : "content_text_center",
+    "display_width" : null,
+    "label" : "Content Text Center",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : true
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "tagline" : {
+      "tag_line_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "tag_line_divider" : false
+    },
+    "heading" : {
+      "heading_type" : "<h2>",
+      "heading_color" : {
+        "color" : null,
+        "opacity" : null
+      }
+    },
+    "card" : {
+      "image" : {
+        "card_image_height" : 0
+      },
+      "title" : {
+        "card_title_color" : {
+          "color" : null,
+          "opacity" : 100
+        },
+        "card_title_size" : 16
+      },
+      "icon" : {
+        "card_icon_color" : {
+          "color" : null,
+          "opacity" : 100
+        },
+        "card_icon_background_color" : {
+          "color" : null,
+          "opacity" : 100
+        }
+      },
+      "content_alignment" : {
+        "card_text_center" : false
+      },
+      "button" : {
+        "card_button_background_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_border_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_text_color" : {
+          "color" : null,
+          "opacity" : null
+        },
+        "card_button_outline" : false,
+        "card_button_full_width" : false
+      },
+      "corner" : { },
+      "border" : {
+        "card_border" : { }
+      },
+      "background" : {
+        "card_background_type" : "gradient",
+        "card_background_image" : {
+          "src" : "https://example.com/img.png",
+          "background_position" : "MIDDLE_CENTER",
+          "background_size" : "cover"
+        },
+        "card_background_gradient" : {
+          "colors" : [ {
+            "color" : {
+              "r" : 255,
+              "g" : 255,
+              "b" : 255,
+              "a" : 1
+            }
+          }, {
+            "color" : {
+              "r" : 255,
+              "g" : 255,
+              "b" : 255,
+              "a" : 1
+            }
+          } ],
+          "side_or_corner" : {
+            "verticalSide" : "BOTTOM",
+            "horizontalSide" : null
+          }
+        }
+      }
+    },
+    "button" : {
+      "button_background_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_border_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_text_color" : {
+        "color" : null,
+        "opacity" : null
+      },
+      "button_outline" : false
+    },
+    "content_text_center" : true
+  }
+} ]

@@ -1,0 +1,8 @@
+{
+  "global" : false,
+  "icon" : "fontawesome-5.14.0:Alternate%20List",
+  "host_template_types" : [ "PAGE", "BLOG_LISTING" ],
+  "module_id" : 95244751995,
+  "label" : "Hero Single Column",
+  "is_available_for_new_content" : true
+}

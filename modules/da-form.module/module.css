@@ -1,0 +1,49 @@
+.da-form .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.da-form .flex .col {
+  flex: 1;
+  padding: 0px 20px;
+}
+
+.da-form .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-form .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-form .grecaptcha-badge {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+
+  .da-form .flex.flex--left-form .col:first-child {
+    order: 2;
+    padding-top: 20px;
+  }
+  
+  .da-form .flex .col {
+    flex: 0 0 100%;
+  }
+  
+  .da-form .flex .col:not(:last-child){
+    padding-top: 20px;
+  }
+
+}
+
+.da-form .flex.flex--right-form {
+  flex-direction: row-reverse;
+}

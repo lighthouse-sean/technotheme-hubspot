@@ -1,0 +1,27 @@
+{
+  "global" : false,
+  "inline_help_text" : "This module can only be used once per page.",
+  "icon" : "fontawesome-5.14.0:Images:SOLID",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 95244461878,
+  "css_assets" : [ {
+    "autoload" : true,
+    "path" : "../../css/components/_magnific-popup.css",
+    "name" : "_magnific-popup.css"
+  } ],
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../js/list.js",
+    "name" : "list.js"
+  }, {
+    "autoload" : true,
+    "path" : "../../js/macy.js",
+    "name" : "macy.js"
+  }, {
+    "autoload" : true,
+    "path" : "../../js/magnific-popup.js",
+    "name" : "magnific-popup.js"
+  } ],
+  "label" : "Gallery Filter",
+  "is_available_for_new_content" : true
+}

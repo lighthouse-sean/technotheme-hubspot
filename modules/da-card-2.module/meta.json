@@ -1,0 +1,8 @@
+{
+  "global" : false,
+  "icon" : "fontawesome-5.14.0:Dice%20Four:SOLID",
+  "host_template_types" : [ "PAGE", "BLOG_LISTING" ],
+  "module_id" : 95244174154,
+  "label" : "Card Four Column",
+  "is_available_for_new_content" : true
+}

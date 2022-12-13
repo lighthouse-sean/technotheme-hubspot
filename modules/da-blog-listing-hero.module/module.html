@@ -1,0 +1,306 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-blog-listing-hero .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-blog-listing-hero .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-blog-listing-hero .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-blog-listing-hero .blog-author-bio {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.card.card_topic_color.color %}
+  .da-blog-listing-hero .topic {
+    background-color: rgba({{ module.styles.card.card_topic_color.color|convert_rgb }}, {{ module.styles.card.card_topic_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.card.title.card_title_color.color %}
+  .da-blog-listing-hero .card-title {
+    color: rgba({{ module.styles.card.title.card_title_color.color|convert_rgb }}, {{ module.styles.card.title.card_title_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.card.card_author_color.color %}
+  .da-blog-listing-hero .card-author {
+    color: rgba({{ module.styles.card.card_author_color.color|convert_rgb }}, {{ module.styles.card.card_author_color.opacity / 100 }});
+  }
+  {% endif %}
+
+
+  {% if module.styles.card.card_date_color.color %}
+  .author-date a,
+  .da-blog-listing-hero .date {
+    color: rgba({{ module.styles.card.card_date_color.color|convert_rgb }}, {{ module.styles.card.card_date_color.opacity / 100 }});
+  }
+  .da-blog-listing-hero .author-date .list-inline-item:not(:last-child) {
+    border-color: rgba({{ module.styles.card.card_date_color.color|convert_rgb }}, {{ module.styles.card.card_date_color.opacity / 100 }});
+  }
+  {% set blog_author_date_color = module.styles.card.card_date_color.color %}
+  .author-date a:hover,
+  .author-date a:focus {
+    color: {{ color_variant(blog_author_date_color, -20) }};
+  }
+  {% endif %}
+
+  {% if module.styles.card.card_background_color.color %}
+  .da-blog-listing-hero .card-flex {
+    background-color: rgba({{ module.styles.card.card_background_color.color|convert_rgb }}, {{ module.styles.card.card_background_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  .da-blog-listing-hero .card-image-wrap img {
+    min-height: {{ module.card.image_height }}px;
+    {% if module.styles.card.corner.radius >= 0 %}
+    border-radius: {{ module.styles.card.corner.radius ~ "px" }};
+    {% endif %}
+  }
+
+  {# Button #}
+  {% if module.styles.card.button.button_outline %}
+  {% if module.styles.card.button.button_border_color.color or module.styles.card.button.button_text_color.color %}
+  {# If Button Outline #}
+  .card-col .button-outline {
+    border-color: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+  }
+  .card-col .button-outline:hover,
+  .card-col .button-outline:focus,
+  .card-col .button-outline:active {
+    background-color: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.card.button.button_text_color.color|convert_rgb }}, {{ module.styles.card.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.card.button.button_text_color.color|convert_rgb }}, {{ module.styles.card.button.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.card.button.button_background_color.color or module.styles.card.button.button_border_color.color or module.styles.card.button.button_text_color.color %}
+  .card-col .button, 
+  .card-col .cta_button {
+    background-color: rgba({{ module.styles.card.button.button_background_color.color|convert_rgb }}, {{ module.styles.card.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.card.button.button_text_color.color|convert_rgb }}, {{ module.styles.card.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.card.button.button_text_color.color|convert_rgb }}, {{ module.styles.card.button.button_text_color.opacity / 100 }});
+  }
+  .card-col .button:hover, 
+  .card-col .button:focus,
+  .card-col .cta_button:hover,
+  .card-col .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.card.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.card.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.card.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+  }
+  .card-col .button:active, 
+  .card-col .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.card.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.card.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.card.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-blog-listing-hero">
+
+  {% if blog_author %}
+  <div class="text-center">
+    {% if module.tag_line_author %}
+    <div class="tagline-wrap mb-15">
+      <div class="tagline secondary-color">
+        {{ module.tag_line_author }}
+      </div>
+      {% if module.styles.tagline.tag_line_divider %}
+      <div class="tagline-line secondary-bg-color ml-15"></div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if blog_author.avatar %}
+    <div class="blog-author-avatar mb-20">
+      <img src="{{ blog_author.avatar }}" alt="{{ blog_author.display_name }}">
+    </div>
+    {% endif %}
+
+    {% if blog_author.display_name %}
+
+    <div class="heading-text">
+      {{ module.styles.heading.heading_type }}
+      <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+        {{ blog_author.display_name }}
+      </span>
+    </div>
+
+    <div class="blog-author-bio font-size-20 mb-30">
+      {{ blog_author.bio }}
+    </div>
+    {% endif %}
+
+  </div>
+  {% elif tag %}
+  <div class="text-center">
+    {% if module.tag_line %}
+    <div class="tagline-wrap mb-15">
+      <div class="tagline secondary-color">
+        {{ module.tag_line }}
+      </div>
+      {% if module.styles.tagline.tag_line_divider %}
+      <div class="tagline-line secondary-bg-color ml-15"></div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="heading-text">
+      {{ module.styles.heading.heading_type }}
+      <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+        {{ page_meta.html_title|split(' | ')|last }}
+      </span>
+    </div>
+
+  </div>
+  {% else %}
+  <div class="text-center">
+    {% if module.tag_line %}
+    <div class="tagline-wrap mb-15">
+      <div class="tagline secondary-color">
+        {{ module.tag_line }}
+      </div>
+      {% if module.styles.tagline.tag_line_divider %}
+      <div class="tagline-line secondary-bg-color ml-15"></div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if module.heading_text %}
+    <div class="heading-text">
+      {{ module.styles.heading.heading_type }}
+      <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">{{ module.heading_text }}</span>
+    </div>
+    {% endif %}
+
+    {% if module.rich_text %}
+    <div class="{% if module.add_featured_card %}mb-30{% else %}mb-0{% endif %}">
+      {{ module.rich_text }}
+    </div>
+    {% endif %}
+
+    {% if module.add_featured_card %}
+    <div class="card-flex">
+      <div class="card-col card-content-wrap text-left">
+
+        {% if module.card.topic %}
+        <ul class="list-inline">
+          {% for item in module.card.topic %}
+          <li class="list-inline-item font-weight-600 topic font-size-14">
+            {% set href = item.topic_link.url.href %}
+            {% if item.topic_link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+            {% endif %}
+            {% set rel = [] %}
+            {% if item.topic_link.no_follow %}
+            {% do rel.append("nofollow") %}
+            {% endif %}
+            {% if item.topic_link.open_in_new_tab %}
+            {% do rel.append("noopener") %}
+            {% endif %}
+            <a class="button px-10 py-5 font-size-14" href="{{ href }}"
+               {% if item.topic_link.open_in_new_tab %}target="_blank"{% endif %}
+               {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+               >
+              {{ item.topic_text }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if module.card.author or module.card.date %}
+        <ul class="list-inline author-date">
+          {% if module.card.author %}
+          <li class="list-inline-item card-author font-weight-600 date font-size-14">
+            {{ module.card.author }}
+          </li>
+          {% endif %}
+          {% if module.card.date %}
+          <li class="list-inline-item date font-weight-600 font-size-14">
+            {{ module.card.date }}
+          </li>
+          {% endif %}
+        </ul>
+        {% endif %}
+
+        {% if module.card.title %}
+        <h2 class="h3 card-title font-size-{{ module.styles.card.title.card_title_font_size }}">
+          {{ module.card.title }}
+        </h2>
+        {% endif %}
+
+        {% if module.card.content %}
+        <div class="mb-40">
+          {{ module.card.content }}
+        </div>
+        {% endif %}
+
+        {% if module.card.button.button_text %}
+        <div>
+          {% set href = module.card.button.button_link.url.href %}
+          {% if module.card.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          {% set rel = [] %}
+          {% if module.card.button.button_link.no_follow %}
+          {% do rel.append("nofollow") %}
+          {% endif %}
+          {% if module.card.button.button_link.open_in_new_tab %}
+          {% do rel.append("noopener") %}
+          {% endif %}
+          <a class="{% if module.styles.card.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+             {% if module.card.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+             >
+            {{ module.card.button.button_text }}
+            {% if module.card.button.button_icon.name %}
+            {% icon
+                name="{{ module.card.button.button_icon.name }}"
+                style="{{ module.card.button.button_icon.type }}"
+                unicode="{{ module.card.button.button_icon.unicode }}"
+                icon_set="{{ module.card.button.button_icon.icon_set }}"
+                width="16"
+                height="16"
+              %}
+            {% endif %}
+          </a>
+        </div>
+        {% endif %}
+      </div>
+      {% if module.card.image.src %}
+      <div class="card-col card-image-wrap">
+        {% set sizeAttrs = 'width="{{ module.card.image.width }}" height="{{ module.card.image.height }}"' %}
+        {% if module.card.image.size_type == 'auto' %}
+        {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+        {% elif module.card.image.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.card.image.max_width }}" height="{{ module.card.image.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.card.image.loading != 'disabled' ? 'loading="{{ module.card.image.loading }}"' : '' %}
+        <img src="{{ module.card.image.src }}" alt="{{ module.card.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>

@@ -1,0 +1,15 @@
+.da-basic .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-basic.text-center .tagline-wrap {
+  justify-content: center;
+}
+
+.da-basic .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}

@@ -1,0 +1,394 @@
+[ {
+  "id" : "0d43f487-b08a-2055-2fa2-f372b626802f",
+  "name" : "tag_line",
+  "display_width" : null,
+  "label" : "Tag Line",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : ""
+}, {
+  "id" : "c690c82b-ffe1-de49-3634-2e4fb5399baf",
+  "name" : "heading_text",
+  "display_width" : null,
+  "label" : "Heading Text",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Search Results"
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "display_width" : null,
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "0626875f-eefe-6b33-f2ce-0ec9a2c9c820",
+    "name" : "tag_line_color",
+    "display_width" : null,
+    "label" : "Tag Line Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : null,
+      "opacity" : 100
+    }
+  }, {
+    "id" : "6db13463-9903-c4ee-3b03-062eb29ebd77",
+    "name" : "heading_color",
+    "display_width" : null,
+    "label" : "Heading Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : null,
+      "opacity" : 100
+    }
+  }, {
+    "id" : "5e81fee7-3f09-e872-242e-7a446e4070d6",
+    "name" : "heading_font_size",
+    "display_width" : null,
+    "label" : "Heading Font Size",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "max" : 100,
+    "step" : 1,
+    "type" : "number",
+    "default" : 48
+  }, {
+    "id" : "798ea94d-558a-7b22-a4b2-9d05c259dc47",
+    "name" : "section_background_type",
+    "display_width" : null,
+    "label" : "Section Background Type",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "image", "Image" ], [ "gradient", "Gradient" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "type" : "choice",
+    "default" : "gradient"
+  }, {
+    "id" : "bg_image",
+    "name" : "section_background_image",
+    "display_width" : null,
+    "label" : "Section Background Image",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "798ea94d-558a-7b22-a4b2-9d05c259dc47",
+      "controlling_field_path" : null,
+      "controlling_value_regex" : "image",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "backgroundimage",
+    "default" : {
+      "background_position" : "MIDDLE_CENTER",
+      "background_size" : "cover",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/kudos-home-hero-bg.jpg"
+    }
+  }, {
+    "id" : "bg_gradient",
+    "name" : "section_background_gradient",
+    "display_width" : null,
+    "label" : "Section Background Gradient",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "798ea94d-558a-7b22-a4b2-9d05c259dc47",
+      "controlling_field_path" : null,
+      "controlling_value_regex" : "gradient",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "type" : "gradient",
+    "default" : {
+      "colors" : [ {
+        "color" : {
+          "r" : 247,
+          "g" : 248,
+          "b" : 250,
+          "a" : 1
+        }
+      }, {
+        "color" : {
+          "r" : 247,
+          "g" : 248,
+          "b" : 250,
+          "a" : 1
+        }
+      } ],
+      "side_or_corner" : {
+        "verticalSide" : "BOTTOM",
+        "horizontalSide" : null
+      }
+    }
+  }, {
+    "id" : "0edad310-e862-f90b-de79-4f35ddf680a8",
+    "name" : "section_spacing",
+    "display_width" : null,
+    "label" : "Section Spacing",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "d9ae7962-4ec7-54e8-c63a-39539f424736",
+      "name" : "desktop",
+      "display_width" : null,
+      "label" : "Desktop",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 60,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 60,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        },
+        "margin" : {
+          "top" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      }
+    }, {
+      "id" : "53d02ff5-a6dd-53a8-1bdb-7514a03f6dd9",
+      "name" : "mobile",
+      "display_width" : null,
+      "label" : "Mobile",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 40,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 40,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        },
+        "margin" : {
+          "top" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "desktop" : {
+        "padding" : {
+          "top" : {
+            "value" : 60,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 60,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        },
+        "margin" : {
+          "top" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      },
+      "mobile" : {
+        "padding" : {
+          "top" : {
+            "value" : 40,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 40,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        },
+        "margin" : {
+          "top" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      }
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "tag_line_color" : {
+      "color" : null,
+      "opacity" : 100
+    },
+    "heading_color" : {
+      "color" : null,
+      "opacity" : 100
+    },
+    "heading_font_size" : 48,
+    "section_background_type" : "gradient",
+    "section_background_image" : {
+      "background_position" : "MIDDLE_CENTER",
+      "background_size" : "cover",
+      "src" : "https://f.hubspotusercontent20.net/hubfs/14487128/KUDOS/kudos-home-hero-bg.jpg"
+    },
+    "section_background_gradient" : {
+      "colors" : [ {
+        "color" : {
+          "r" : 247,
+          "g" : 248,
+          "b" : 250,
+          "a" : 1
+        }
+      }, {
+        "color" : {
+          "r" : 247,
+          "g" : 248,
+          "b" : 250,
+          "a" : 1
+        }
+      } ],
+      "side_or_corner" : {
+        "verticalSide" : "BOTTOM",
+        "horizontalSide" : null
+      }
+    },
+    "section_spacing" : {
+      "desktop" : {
+        "padding" : {
+          "top" : {
+            "value" : 60,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 60,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        },
+        "margin" : {
+          "top" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      },
+      "mobile" : {
+        "padding" : {
+          "top" : {
+            "value" : 40,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 40,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "right" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        },
+        "margin" : {
+          "top" : {
+            "value" : 0,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 0,
+            "units" : "px"
+          }
+        }
+      }
+    }
+  }
+} ]

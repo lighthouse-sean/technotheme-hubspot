@@ -1,0 +1,302 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-pricing-1 .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+
+  .da-pricing-1 .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-pricing-1 .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  .da-pricing-1 .heading-text .heading-color strong{
+    color: {{ theme.global_colors.secondary_color.color }};
+  }
+
+
+  .da-pricing-1 .pricing-card{
+    {% if module.styles.pricing.background.card_background_color.color %}
+    background-color: rgba({{ module.styles.pricing.background.card_background_color.color|convert_rgb }}, {{ module.styles.pricing.background.card_background_color.opacity / 100 }});
+    {% endif %}
+    {% if module.styles.pricing.card_corner.radius >= 0 %}
+    border-radius: {{ module.styles.pricing.card_corner.radius ~ "px" }};
+    {% endif %}
+    {{ module.styles.pricing.card_border.border.css }}
+  }
+
+  {% if module.styles.pricing.card_colors.pricing_name_color.color %}
+  .da-pricing-1 .pricing-card .card-title {
+    color: rgba({{ module.styles.pricing.card_colors.pricing_name_color.color|convert_rgb }}, {{ module.styles.pricing.card_colors.pricing_name_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.pricing.card_colors.pricing_number_color.color %}
+  .da-pricing-1 .pricing-card .pricing-number {
+    color: rgba({{ module.styles.pricing.card_colors.pricing_number_color.color|convert_rgb }}, {{ module.styles.pricing.card_colors.pricing_number_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.pricing.card_colors.pricing_currency_color.color %}
+  .da-pricing-1 .pricing-card .pricing-currency {
+    color: rgba({{ module.styles.pricing.card_colors.pricing_currency_color.color|convert_rgb }}, {{ module.styles.pricing.card_colors.pricing_currency_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.pricing.card_colors.pricing_features_color.color %}
+  .da-pricing-1 .pricing-card .pricing-features {
+    color: rgba({{ module.styles.pricing.card_colors.pricing_features_color.color|convert_rgb }}, {{ module.styles.pricing.card_colors.pricing_features_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {# Button #}
+  {% if module.styles.button.button_outline %}
+  {# If Button Outline #}
+  {% if module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  .button-outline {
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button-outline:hover,
+  .button-outline:focus,
+  .button-outline:active {
+    background-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    {% endif %}
+  }
+  {% else %}  
+  {# If NOT Button Outline #}
+  {% if module.styles.button.button_background_color.color or module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  .button, 
+  .cta_button {
+    background-color: rgba({{ module.styles.button.button_background_color.color|convert_rgb }}, {{ module.styles.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  .button:hover, 
+  .button:focus,
+  .cta_button:hover,
+  .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button:active, 
+  .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {# Card Button #}
+  {% if module.styles.pricing.button.pricing_card_button_outline %} 
+  {# If Button Outline #}
+  {% if module.styles.pricing.button.pricing_card_button_border_color.color or module.styles.pricing.button.pricing_card_button_text_color.color %}
+  .pricing-card .button-outline {
+    border-color: rgba({{ module.styles.pricing.button.pricing_card_button_border_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.pricing.button.pricing_card_button_border_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.pricing.button.pricing_card_button_border_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_border_color.opacity / 100 }});
+  }
+  .pricing-card .button-outline:hover,
+  .pricing-card .button-outline:focus,
+  .pricing-card .button-outline:active {
+    background-color: rgba({{ module.styles.pricing.button.pricing_card_button_border_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.pricing.button.pricing_card_button_text_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.pricing.button.pricing_card_button_text_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.pricing.button.pricing_card_button_background_color.color or module.styles.pricing.button.pricing_card_button_border_color.color or module.styles.pricing.button.pricing_card_button_text_color.color %}
+  .pricing-card .button, 
+  .pricing-card .cta_button {
+    background-color: rgba({{ module.styles.pricing.button.pricing_card_button_background_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.pricing.button.pricing_card_button_border_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.pricing.button.pricing_card_button_text_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.pricing.button.pricing_card_button_text_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_text_color.opacity / 100 }});
+  }
+  .pricing-card .button:hover, 
+  .pricing-card .button:focus,
+  .pricing-card .cta_button:hover,
+  .pricing-card .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.pricing.button.pricing_card_button_background_color.color, -20)|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.pricing.button.pricing_card_button_border_color.color, -20)|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_border_color.opacity / 100 }});
+  }
+  .pricing-card .button:active, 
+  .pricing-card .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.pricing.button.pricing_card_button_background_color.color, -30)|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.pricing.button.pricing_card_button_border_color.color, -30)|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {# Card Icon #}
+  {% if module.styles.pricing.button.pricing_card_button_outline %}
+  {% if module.styles.pricing.button.pricing_card_button_border_color.color or module.styles.pricing.button.pricing_card_button_text_color.color %}
+  .pricing-card .button-outline .hs_cos_wrapper_type_icon svg{
+    fill: rgba({{ module.styles.pricing.button.pricing_card_button_border_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_border_color.opacity / 100 }});
+  }
+
+  .pricing-card .button-outline:hover .hs_cos_wrapper_type_icon svg,
+  .pricing-card .button-outline:focus .hs_cos_wrapper_type_icon svg{
+    fill: rgba({{ module.styles.pricing.button.pricing_card_button_text_color.color|convert_rgb }}, {{ module.styles.pricing.button.pricing_card_button_text_color.opacity / 100 }});
+  }
+  {% else %}
+  .pricing-card .button-outline .hs_cos_wrapper_type_icon svg{
+    fill: {{ theme.global_colors.secondary_color.color }};
+  }
+
+  .pricing-card .button-outline:hover .hs_cos_wrapper_type_icon svg,
+  .pricing-card .button-outline:focus .hs_cos_wrapper_type_icon svg{
+    fill: {{ theme.buttons.text_color.color }};
+  }
+  {% endif %}
+  {% else %}
+  .pricing-card .button .hs_cos_wrapper_type_icon svg{
+    fill: {{ theme.buttons.text_color.color }};
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-pricing-1 {% if module.styles.content_text_center %}text-center{% endif %}">
+
+  {% if module.tag_line %}
+  <div class="tagline-wrap mb-15">
+    <div class="tagline secondary-color">
+      {{ module.tag_line }}
+    </div>
+    {% if module.styles.tagline.tag_line_divider %}
+    <div class="tagline-line secondary-bg-color ml-15"></div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if module.heading_text %}
+  <div class="heading-text">
+    {{ module.styles.heading.heading_type }}
+    <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+      {{ module.heading_text }}
+    </span>
+  </div>
+  {% endif %}
+
+  {% if module.rich_text %}
+  <div class="mb-40">
+    {{ module.rich_text }}
+  </div>
+  {% endif %}
+
+  <div class="flex {% if module.button.button_text %}mb-30{% endif %}">
+
+    {% for item in module.pricing %}
+    <div class="col">
+      <div class="pricing-card p-40 {% if module.styles.pricing.card_alignment.pricing_card_text_center %}text-center{% else %}text-left{% endif %}">
+        {% if item.pricing_popular.enable_badge %}
+        <div class="pricing-card-badge">
+          {% if item.pricing_popular.badge_text %}
+          <div class="pricing-card-badge-text letter-spacing-1 secondary-bg-color px-10 py-5 h4 font-size-12">{{ item.pricing_popular.badge_text }}</div>
+          {% endif %}
+        </div> 
+        {% endif %}
+        <div class="pricing-card-body {% if item.pricing_popular.enable_badge %}popular{% endif %}">
+          {% if item.pricing_currency %}<div class="pricing-currency secondary-color h4 font-size-18">{{ item.pricing_currency }}</div>{% endif %}
+          {% if item.pricing_number %}<div class="pricing-number secondary-color h4 font-size-30">{{ item.pricing_number }}</div>{% endif %}
+          {% if item.pricing_text %}
+          <div class="pricing-description font-size-14 mb-20">
+            {{ item.pricing_text }}
+          </div>
+          {% endif %}
+          {% if item.pricing_name %}
+          <div class="{% if item.pricing_features %}mb-20{% else %}mb-10{% endif %}">
+            <h3 class="card-title mb-20 h3 font-size-30">
+              {{ item.pricing_name }}
+            </h3>
+            <div class="card-title-line"></div>
+          </div>
+          {% endif %}
+          <div class="pricing-features-wrapper">
+            {% for item2 in item.pricing_features %}
+            {% if item2.pricing_features %}
+            <div class="pricing-features">
+              <span class="pricing-features-text">
+                {{ item2.pricing_features }}
+              </span>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="pricing-card-footer pt-20">
+          {% if item.pricing_button.pricing_button_text %}
+          <div class="{% if module.styles.pricing.button.pricing_card_button_fullwidth %}button-full-width{% endif %}">
+            {% set href = item.pricing_button.pricing_button_link.url.href %}
+            {% if item.pricing_button.pricing_button_link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+            {% endif %}
+            {% set rel = [] %}
+            {% if item.pricing_button.pricing_button_link.no_follow %}
+            {% do rel.append("nofollow") %}
+            {% endif %}
+            {% if item.pricing_button.pricing_button_link.open_in_new_tab %}
+            {% do rel.append("noopener") %}
+            {% endif %}
+            <a class="{% if module.styles.pricing.button.pricing_card_button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+               {% if item.pricing_button.pricing_button_link.open_in_new_tab %}target="_blank"{% endif %}
+               {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+               >
+              {{ item.pricing_button.pricing_button_text }}
+              {% if item.pricing_button.pricing_button_icon.name %}
+              {% icon
+                name="{{ item.pricing_button.pricing_button_icon.name }}"
+                style="{{ item.pricing_button.pricing_button_icon.type }}"
+                unicode="{{ item.pricing_button.pricing_button_icon.unicode }}"
+                icon_set="{{ item.pricing_button.pricing_button_icon.icon_set }}"
+                width="16"
+                height="16"
+              %}
+              {% endif %} 
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if module.button.button_text %}
+  <div>
+    {% set href = module.button.button_link.url.href %}
+    {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+    {% endif %}
+    {% set rel = [] %}
+    {% if module.button.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+    {% endif %}
+    {% if module.button.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+    {% endif %}
+    <a class="{% if module.styles.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+       {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+       {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}>
+      {{ module.button.button_text }}
+    </a>
+  </div>
+  {% endif %}
+
+</section>

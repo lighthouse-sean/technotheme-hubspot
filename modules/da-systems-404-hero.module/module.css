@@ -1,0 +1,21 @@
+.da-systems-404-hero .content-wrapper {
+  position: relative; 
+}
+
+.da-systems-404-hero .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.da-systems-404-hero .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-systems-404-hero .date.list-inline-item:not(:last-child) {
+  border-right: 1px solid #ffffff;
+  padding-right: 10px;
+}

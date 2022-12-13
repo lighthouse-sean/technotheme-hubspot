@@ -1,0 +1,49 @@
+.da-blog-post-hero-case-study .content-wrapper {
+  position: relative; 
+}
+
+.da-blog-post-hero-case-study .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-blog-post-hero-case-study .featured-image{
+  width: 100%;
+}
+
+.da-blog-post-hero-case-study .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-blog-post-hero-case-study .list-meta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.da-blog-post-hero-case-study .list-meta-date,
+.da-blog-post-hero-case-study .list-meta-read-min{
+  display: flex;
+  align-items: center;
+}
+
+.da-blog-post-hero-case-study .list-meta-date svg,
+.da-blog-post-hero-case-study .list-meta-read-min svg{
+  margin-right: 7px;
+}
+
+.da-blog-post-hero-case-study .date.list-inline-item:not(:last-child) {
+  border-right: 1px solid #ffffff;
+  padding-right: 10px;
+}
+
+.da-blog-post-hero-case-study .meta-blog-author img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-right: 7px;
+}

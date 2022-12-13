@@ -1,0 +1,223 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  {# Button 1 #}
+  {% if module.styles.button_1.button_outline %}
+  {# If Button Outline #}
+  {% if module.styles.button_1.button_border_color.color or module.styles.button_1.button_text_color.color %}
+  .button-1 .button-outline {
+    border-color: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+  }
+  .button-1 .button-outline:hover,
+  .button-1 .button-outline:focus,
+  .button-1 .button-outline:active {
+    background-color: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_1.button_text_color.color|convert_rgb }}, {{ module.styles.button_1.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_1.button_text_color.color|convert_rgb }}, {{ module.styles.button_1.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button_1.button_background_color.color or module.styles.button_1.button_border_color.color or module.styles.button_1.button_text_color.color %}
+  .button-1 .button, 
+  .button-1 .cta_button {
+    background-color: rgba({{ module.styles.button_1.button_background_color.color|convert_rgb }}, {{ module.styles.button_1.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button_1.button_border_color.color|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_1.button_text_color.color|convert_rgb }}, {{ module.styles.button_1.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_1.button_text_color.color|convert_rgb }}, {{ module.styles.button_1.button_text_color.opacity / 100 }});
+  }
+  .button-1 .button:hover, 
+  .button-1 .button:focus,
+  .button-1 .cta_button:hover,
+  .button-1 .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button_1.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button_1.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button_1.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+  }
+  .button-1 .button:active, 
+  .button-1 .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button_1.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button_1.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button_1.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button_1.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {# Button 2 #}
+  {% if module.styles.button_2.button_outline %}
+  {# If Button Outline #}
+  {% if module.styles.button_2.button_border_color.color or module.styles.button_2.button_text_color.color %}
+  .button-2 .button-outline {
+    border-color: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+  }
+  .button-2 .button-outline:hover,
+  .button-2 .button-outline:focus,
+  .button-2 .button-outline:active {
+    background-color: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_2.button_text_color.color|convert_rgb }}, {{ module.styles.button_2.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_2.button_text_color.color|convert_rgb }}, {{ module.styles.button_2.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button_2.button_background_color.color or module.styles.button_2.button_border_color.color or module.styles.button_2.button_text_color.color %}
+  .button-2 .button, 
+  .button-2 .cta_button {
+    background-color: rgba({{ module.styles.button_2.button_background_color.color|convert_rgb }}, {{ module.styles.button_2.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button_2.button_border_color.color|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button_2.button_text_color.color|convert_rgb }}, {{ module.styles.button_2.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button_2.button_text_color.color|convert_rgb }}, {{ module.styles.button_2.button_text_color.opacity / 100 }});
+  }
+  .button-2 .button:hover, 
+  .button-2 .button:focus,
+  .button-2 .cta_button:hover,
+  .button-2 .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button_2.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button_2.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button_2.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+  }
+  .button-2 .button:active, 
+  .button-2 .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button_2.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button_2.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button_2.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button_2.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+  
+  {% if theme.header.enable_search == true %}
+  .menu-button li:last-child {
+    padding-left: 0px;
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<ul class="menu-button">
+  {% if module.button_1.button_text %}
+  <li class="header-button button-1">
+    {% set href = module.button_1.button_link.url.href %}
+    {% if module.button_1.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+    {% endif %}
+    {% set rel = [] %}
+    {% if module.button_1.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+    {% endif %}
+    {% if module.button_1.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+    {% endif %}
+    <a class="{% if module.styles.button_1.button_outline %}button-outline{% else %}button{% endif %} font-size-16 px-20 py-10" href="{{ href }}"
+       {% if module.button_1.button_link.open_in_new_tab %}target="_blank"{% endif %}
+       {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+       >
+      {% if module.button_1.button_icon.name %}
+      {% icon
+          name="{{ module.button_1.button_icon.name }}"
+          style="{{ module.button_1.button_icon.type }}"
+          unicode="{{ module.button_1.button_icon.unicode }}"
+          icon_set="{{ module.button_1.button_icon.icon_set }}"
+          width="16"
+          height="16"
+        %}
+      {% endif %}
+      {{ module.button_1.button_text }}
+    </a>
+  </li>
+  {% endif %}
+
+
+  {% if module.button_2.button_text %}
+  <li class="header-button button-2">
+    {% set href = module.button_2.button_link.url.href %}
+    {% if module.button_2.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+    {% endif %}
+    {% set rel = [] %}
+    {% if module.button_2.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+    {% endif %}
+    {% if module.button_2.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+    {% endif %}
+    <a class="{% if module.styles.button_2.button_outline %}button-outline{% else %}button{% endif %} font-size-16 px-20 py-10" href="{{ href }}"
+       {% if module.button_2.button_link.open_in_new_tab %}target="_blank"{% endif %}
+       {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+       >
+      {% if module.button_2.button_icon.name %}
+      {% icon
+          name="{{ module.button_2.button_icon.name }}"
+          style="{{ module.button_2.button_icon.type }}"
+          unicode="{{ module.button_2.button_icon.unicode }}"
+          icon_set="{{ module.button_2.button_icon.icon_set }}"
+          width="16"
+          height="16"
+        %}
+      {% endif %}
+      {{ module.button_2.button_text }}
+    </a>
+  </li>
+  {% endif %}
+
+  {% if theme.header.enable_search == true %}
+  <!-- HTML to show when checked -->
+  <li class="header-search visible-desktop">
+    <a class="toggle" href="javascript:void(0);">
+      {% icon
+                    name='search',
+                    purpose='semantic',
+                    style='SOLID',
+                    title='Search',
+                    width='18',
+                    height='18'
+                  %}
+      {% icon
+                    name='times-circle',
+                    purpose='semantic',
+                    style='SOLID',
+                    title='Search',
+                    width='18',
+                    height='18'
+                  %}
+    </a>
+    <div class="toggle-content" id="toggle-search">
+      <form class="hs-search-form" action="/{{ site_settings.content_search_results_page_path }}">
+        <input id="hs-search-input" class="hs-search-input searchInput" type="search" name="term" placeholder="Search">
+        <button type="submit" value="Submit" class="hs-search-submit">
+          {% icon
+                    name='search',
+                    purpose='semantic',
+                    style='SOLID',
+                    title='Search',
+                    width='16',
+                    height='16'
+                  %}
+        </button>
+      </form>
+    </div>
+  </li>
+  {% endif %}
+
+</ul>
+
+{% if theme.header.enable_search == true %}
+{% require_js position="footer" %}
+<script>
+  // querySelector returns the first element it finds with the correct selector
+  // so it needs a unique class name or you're only grabbing one element
+  document.querySelector('.toggle').addEventListener('click', function(e) {
+    // from https://www.jamestease.co.uk/blether/add-remove-or-toggle-classes-using-vanilla-javascript
+    // querySelectorAll returns a nodeList, so map to to an array and BOOM
+    // if there's only one element to toggle, you can skip the array
+    // and grab it with a simple querySelector
+    [].map.call(document.querySelectorAll('.toggle-content, .toggle'), function(el) {
+      // classList supports 'contains', 'add', 'remove', and 'toggle'
+      el.classList.toggle('toggled');
+    });
+  });
+</script>
+{% end_require_js %}
+{% endif %}

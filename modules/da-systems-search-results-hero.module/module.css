@@ -1,0 +1,61 @@
+.da-systems-search-results-hero .content-wrapper {
+  position: relative; 
+}
+
+.da-systems-search-results-hero .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.da-systems-search-results-hero .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-systems-search-results-hero .date.list-inline-item:not(:last-child) {
+  border-right: 1px solid #ffffff;
+  padding-right: 10px;
+}
+
+.da-systems-search-results-hero form {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+.da-systems-search-results-hero form .hs-search-field__input {
+  flex-grow: 1;
+}
+
+.da-systems-search-results-hero form .hs-form-field > label {
+  display: none;
+}
+
+.da-systems-search-results-hero form .hs-search-field__input {
+  padding: 15px 12px;
+  border-width: 1px;
+}
+
+.da-systems-search-results-hero form input[type=submit],
+.da-systems-search-results-hero form .hs-button {
+  padding: 15px 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.da-systems-search-results-hero form input[type=submit]:hover,
+.da-systems-search-results-hero form input[type=submit]:focus,
+.da-systems-search-results-hero form .hs-button:hover,
+.da-systems-search-results-hero form .hs-button:focus {
+  transform: none;
+}

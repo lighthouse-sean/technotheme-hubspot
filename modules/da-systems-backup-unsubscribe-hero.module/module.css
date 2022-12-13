@@ -1,0 +1,27 @@
+.da-systems-backup-unsubscribe-hero .content-wrapper {
+  position: relative; 
+}
+
+.da-systems-backup-unsubscribe-hero .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-systems-backup-unsubscribe-hero .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-systems-backup-unsubscribe-hero .form {
+  padding: 50px 40px; 
+}
+
+@media (max-width: 767px) {
+  
+  .da-systems-backup-unsubscribe-hero .form {
+    padding: 40px 20px; 
+  }
+  
+}

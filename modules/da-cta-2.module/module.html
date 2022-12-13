@@ -1,0 +1,144 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  .da-cta-2 .card {
+    {% if module.styles.card.background.card_background_type == "image" %}
+    {{ module.styles.card.background.card_background_image.css }}
+    {% elif module.styles.card.background.card_background_type == "gradient" %}
+    background: {{ module.styles.card.background.card_background_gradient.css }};
+    {% endif %}
+    {% if module.styles.card.corner.radius >= 0 %}
+    border-radius: {{ module.styles.card.corner.radius ~ "px" }};
+    {% endif %}
+    {{ module.styles.card.border.card_border.css }}
+  }
+  
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-cta-2 .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-cta-2 .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-cta-2 .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {# Card Button #}
+  {% if module.styles.card.button.button_outline %}
+  {% if module.styles.card.button.button_border_color.color or module.styles.card.button.button_text_color.color %}
+  {# If Button Outline #}
+  .card .button-outline {
+    border-color: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+  }
+  .card .button-outline:hover,
+  .card .button-outline:focus,
+  .card .button-outline:active {
+    background-color: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.card.button.button_text_color.color|convert_rgb }}, {{ module.styles.card.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.card.button.button_text_color.color|convert_rgb }}, {{ module.styles.card.button.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.card.button.button_background_color.color or module.styles.card.button.button_border_color.color or module.styles.card.button.button_text_color.color %}
+  .card .button, 
+  .card .cta_button {
+    background-color: rgba({{ module.styles.card.button.button_background_color.color|convert_rgb }}, {{ module.styles.card.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.card.button.button_border_color.color|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.card.button.button_text_color.color|convert_rgb }}, {{ module.styles.card.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.card.button.button_text_color.color|convert_rgb }}, {{ module.styles.card.button.button_text_color.opacity / 100 }});
+  }
+  .card .button:hover, 
+  .card .button:focus,
+  .card .cta_button:hover,
+  .card .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.card.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.card.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.card.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+  }
+  .card .button:active, 
+  .card .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.card.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.card.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.card.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.card.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+  
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-cta-2 {% if module.styles.content_text_center %}text-center{% endif %}">
+  <div class="flex flex--{{ module.styles.content_type }}">
+    <div class="col hidden-phone"></div>
+    <div class="col">
+      <div class="card py-50 px-40">
+        {% if module.tag_line %}
+        <div class="tagline-wrap mb-15">
+          <div class="tagline secondary-color">
+            {{ module.tag_line }}
+          </div>
+          {% if module.styles.tagline.tag_line_divider %}
+          <div class="tagline-line secondary-bg-color ml-15"></div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% if module.heading_text %}
+        <div class="heading-text">
+          {{ module.styles.heading.heading_type }}
+          <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+            {{ module.heading_text }}
+          </span>
+        </div>
+        {% endif %}
+
+        {% if module.rich_text %}
+        <div class="mb-30">
+          {{ module.rich_text }}
+        </div>
+        {% endif %}
+
+
+        {% if module.button.button_text %}
+        <div>
+          {% set href = module.button.button_link.url.href %}
+          {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          {% set rel = [] %}
+          {% if module.button.button_link.no_follow %}
+          {% do rel.append("nofollow") %}
+          {% endif %}
+          {% if module.button.button_link.open_in_new_tab %}
+          {% do rel.append("noopener") %}
+          {% endif %}
+          <a class="{% if module.styles.card.button.card_button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+             {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+             >
+            {{ module.button.button_text }}
+            {% if module.button.button_icon.name %}
+              {% icon
+                name="{{ module.button.button_icon.name }}"
+                style="{{ module.button.button_icon.type }}"
+                unicode="{{ module.button.button_icon.unicode }}"
+                icon_set="{{ module.button.button_icon.icon_set }}"
+                width="16"
+                height="16"
+              %}
+            {% endif %}
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,455 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-gallery-filter .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+
+  .da-gallery-filter .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-gallery-filter .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {# Button #}
+  {% if module.styles.button.button_outline %}
+  {% if module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  {# If Button Outline #}
+  .button-outline {
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button-outline:hover,
+  .button-outline:focus,
+  .button-outline:active {
+    background-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button.button_background_color.color or module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  .button, 
+  .cta_button {
+    background-color: rgba({{ module.styles.button.button_background_color.color|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  .button:hover, 
+  .button:focus,
+  .cta_button:hover,
+  .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button:active, 
+  .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+  
+  {# Filter Button #}
+  {% if module.styles.filter_button.filter_button_outline %}
+  {# If Button Outline #}
+  {% if module.styles.filter_button.filter_button_border_color.color or module.styles.filter_button.filter_button_text_color.color %}
+  .radio-inline .button-outline {
+    border-color: rgba({{ module.styles.filter_button.filter_button_border_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.filter_button.filter_button_border_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_button_border_color.opacity / 100 }});
+  }
+  .radio-inline .button-outline:hover,
+  .radio-inline .button-outline:focus,
+  .radio-inline .button-outline:active,
+  .radio-inline .button-outline.active {
+    background-color: rgba({{ module.styles.filter_button.filter_button_border_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.filter_button.filter_button_text_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.filter_button.filter_button_background_color.color or module.styles.filter_button.filter_button_border_color.color or module.styles.filter_button.filter_button_text_color.color %}
+  .radio-inline .button {
+    background-color: rgba({{ module.styles.filter_button.filter_button_background_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.filter_button.filter_button_border_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.filter_button.filter_button_text_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_button_text_color.opacity / 100 }});
+  }
+  .radio-inline .button:hover, 
+  .radio-inline .button:focus {
+    background-color: rgba({{ color_variant(module.styles.filter_button.filter_button_background_color.color, -20)|convert_rgb }}, {{ module.styles.filter_button.filter_button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.filter_button.filter_button_border_color.color, -20)|convert_rgb }}, {{ module.styles.filter_button.filter_button_border_color.opacity / 100 }});
+  }
+  .radio-inline .button:active {
+    background-color: rgba({{ color_variant(module.styles.filter_button.filter_button_background_color.color, -30)|convert_rgb }}, {{ module.styles.filter_button.filter_button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.filter_button.filter_button_border_color.color, -30)|convert_rgb }}, {{ module.styles.filter_button.filter_button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+  
+   {% if module.styles.pagination.pagination_color.color %}
+  .da-gallery-filter .pagination li a {
+    color: rgba({{ module.styles.pagination.pagination_color.color|convert_rgb }}, {{ module.styles.pagination.pagination_color.opacity / 100 }});
+  }
+  .da-gallery-filter .pagination li a:hover,
+  .da-gallery-filter .pagination li a:focus {
+    color: rgba({{ color_variant(module.styles.pagination.pagination_color.color, -20)|convert_rgb }}, {{ module.styles.pagination.pagination_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  .da-gallery-filter .filter-button-plain .radio-inline label {
+    font-weight: 700;
+    font-size: 14px;
+    {% if module.styles.filter_button.filter_plain_color.color %}
+     color: rgba({{ module.styles.filter_button.filter_plain_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_plain_color.opacity / 100 }});
+    {% else %}
+    color: {{ theme.typography.body_text.color }};
+    {% endif %}
+  }
+  
+  .da-gallery-filter .filter-button-plain .radio-inline label.active {
+    {% if module.styles.filter_button.filter_plain_active_color.color %}
+     color: rgba({{ module.styles.filter_button.filter_plain_active_color.color|convert_rgb }}, {{ module.styles.filter_button.filter_plain_active_color.opacity / 100 }});
+    {% else %}
+    color: {{ theme.global_colors.primary_color.color }};
+    {% endif %}
+  }
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-gallery-filter {% if module.styles.content_text_center %}text-center{% endif %}">
+
+  {% if module.tag_line %}
+  <div class="tagline-wrap mb-15">
+    <div class="tagline secondary-color">
+      {{ module.tag_line }}
+    </div>
+    {% if module.styles.tagline.tag_line_divider %}
+    <div class="tagline-line secondary-bg-color ml-15"></div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if module.heading_text %}
+  <div class="heading-text">
+    {{ module.styles.heading.heading_type }}
+    <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+      {{ module.heading_text }}
+    </span>
+  </div>
+  {% endif %}
+
+  {% if module.rich_text %}
+  <div class="mb-50">
+    {{ module.rich_text }}
+  </div>
+  {% endif %}
+
+  <div id="users-{{ name }}">
+    <div class="filter-group mb-50">
+      <div class="form-group {% if module.styles.filter_button.filter_button_plain %}filter-button-plain{% endif %}">
+        <div class="radio-inline radio-inline-{{ name }}">
+
+          <label class="active {% if module.styles.filter_button.filter_button_outline %}button-outline{% else %}button{% endif %}">
+            <input class="filter-all filter-all-{{ name }}" type="radio" value="all" name="gallery" id="gallery-all" checked /> ALL
+          </label>
+        </div> 
+
+        {% for item in module.gallery|unique('gallery_filter') %}
+        {% if item.gallery_filter %}
+        <div class="radio-inline radio-inline-{{ name }}">
+          <label class="{% if module.styles.filter_button.filter_button_outline %}button-outline{% else %}button{% endif %}">
+            <input class="filter filter-{{ name }}" type="radio" value="{{ item.gallery_filter|lower|replace(' ', '') }}" name="gallery" id="gallery-{{ item.gallery_filter|lower|replace(' ', '') }}" />  {{ item.gallery_filter }}
+          </label>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <ul class="list macy-container" id="popup-gallery-{{ name }}">
+
+      {% for item in module.gallery %}
+      <li class="list--list-item {% if module.styles.gallery_image_box_shadow %}box-shadow{% endif %}" data-gallery="{{ item.gallery_filter|lower|replace(' ', '') }}">
+
+        {% if item.gallery_image.src %}
+        {% set sizeAttrs = 'width="{{ item.gallery_image.width }}" height="{{ item.gallery_image.height }}"' %}
+        {% if item.gallery_image.size_type == 'auto' %}
+        {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+        {% elif item.gallery_image.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ item.gallery_image.max_width }}" height="{{ item.gallery_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = item.gallery_image.loading != 'disabled' ? 'loading="{{ item.gallery_image.loading }}"' : '' %}
+
+        {% if item.gallery_popup %}
+        <a href="{{ item.gallery_image.src }}" class="popupimg" title="{{ item.gallery_image.alt }}">
+          <img src="{{ item.gallery_image.src }}" alt="{{ item.gallery_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+        </a>
+        {% else %}
+
+        {% set href = item.gallery_link.url.href %}
+        {% if item.gallery_link.url.type is equalto "EMAIL_ADDRESS" %}
+        {% set href = "mailto:" + href %}
+        {% endif %}
+        {% set rel = [] %}
+        {% if item.gallery_link.no_follow %}
+        {% do rel.append("nofollow") %}
+        {% endif %}
+        {% if item.gallery_link.open_in_new_tab %}
+        {% do rel.append("noopener") %}
+        {% endif %}
+        {% if href %}
+        <a href="{{ href }}"
+           {% if item.gallery_link.open_in_new_tab %}target="_blank"{% endif %}
+           {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+           >
+          {% endif %}
+           <img src="{{ item.gallery_image.src }}" alt="{{ item.gallery_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+        {% if href %}</a>{% endif %}
+        {% endif %}
+
+        {% endif %}
+        
+        {% if item.gallery_title %}
+        <div class="gallery-title mt-30">
+          <h3 class="font-size-18">
+            {{ item.gallery_title }}
+          </h3>
+        </div>
+        {% endif %}
+
+      </li>
+
+      {% endfor %}
+    </ul>
+    <div class="no-result">No Results</div>
+    <ul class="pagination mt-20" id="pagination-{{ name }}"></ul>
+  </div>
+
+  {% if module.button.button_text %}
+  <div class="mt-50">
+    {% set href = module.button.button_link.url.href %}
+    {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+    {% endif %}
+    {% set rel = [] %}
+    {% if module.button.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+    {% endif %}
+    {% if module.button.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+    {% endif %}
+    <a class="{% if module.styles.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+       {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+       {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+       >
+      {{ module.button.button_text }}
+      {% if module.button.button_icon.name %}
+      {% icon
+          name="{{ module.button.button_icon.name }}"
+          style="{{ module.button.button_icon.type }}"
+          unicode="{{ module.button.button_icon.unicode }}"
+          icon_set="{{ module.button.button_icon.icon_set }}"
+          width="16"
+          height="16"
+        %}
+      {% endif %}
+    </a>
+  </div>
+  {% endif %}
+
+</section>
+
+
+{% require_js position="footer" %}
+
+<script>
+  
+  var options = {
+    valueNames: [
+      { data: ['gallery']}
+    ],
+    {% if module.styles.pagination.pagination_show_hide %}
+    page: {{ module.styles.pagination.page }},
+    pagination: true
+    {% else %}
+    {% endif %}
+  };
+  var userList = new List('users-{{ name }}', options);
+                         
+  function resetList(){
+    userList.search();
+    userList.filter();
+    userList.update();
+    $(".filter-all").prop('checked', true);
+    $('.filter').prop('checked', false);
+    //console.log('Reset Successfully!');
+  };
+
+  function updateList(){
+    var values_gallery = $("input[name=gallery]:checked").val();
+
+    userList.filter(function (item) {
+      var galleryFilter = false;
+
+      if(values_gallery == "all") { 
+        galleryFilter = true;
+      } else {
+        galleryFilter = item.values().gallery == values_gallery;
+      }
+      
+      return galleryFilter
+    });
+    userList.update();
+    //console.log('Filtered: ' + values_gallery);
+  }
+  
+  $(function(){
+
+    //updateList();
+    $("input[name=gallery]").change(updateList);
+    
+    $('.radio-inline-{{ name }}').on('click', 'label', function() {
+      $('.radio-inline-{{ name }} label.active').removeClass('active');
+      $(this).addClass('active');
+    });
+
+    userList.on('updated', function (list) {
+      if (list.matchingItems.length > 0) {
+        $('.no-result').hide();
+        
+         document.addEventListener('click', function (event) {
+
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.page')) return;
+    // Don't follow the link
+    event.preventDefault(); 
+
+    var anchor = document.querySelector('#users-{{ name }}');
+    anchor.scrollIntoView({behavior: "smooth"});
+
+  }, false);
+
+        /* Masonry */
+        var masonry = new Macy({
+          container: '#popup-gallery-{{ name }}',
+          trueOrder: false,
+          waitForImages: false,
+          mobileFirst: true,
+          columns: {{ module.styles.gallery_columns_viewport.mobile }},
+            margin: {
+            y: {{ module.styles.gallery_margins_viewport.mobile.margin_y }},
+            x: {{ module.styles.gallery_margins_viewport.mobile.margin_x }},
+          },
+          breakAt: {
+            1140: {
+              margin: {
+                y: {{ module.styles.gallery_margins_viewport.desktop.margin_y }},              
+                x: {{ module.styles.gallery_margins_viewport.desktop.margin_x }},
+              },
+              columns: {{ module.styles.gallery_columns_viewport.desktop }}   
+            },
+            768: {
+              margin: {
+                y: {{ module.styles.gallery_margins_viewport.tablet.margin_y }},              
+                x: {{ module.styles.gallery_margins_viewport.tablet.margin_x }},
+              },
+              columns: {{ module.styles.gallery_columns_viewport.tablet }}   
+            }
+          }
+        });
+
+        /* Popup */
+        $('#popup-gallery-{{ name }}').find('.popupimg').magnificPopup({
+          type: 'image',
+          tLoading: 'Loading image #%curr%...',
+          mainClass: 'mfp-img-mobile',
+          gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+          },
+          image: {
+            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+            titleSrc: function(item) {
+              return item.el.attr('title');
+            }
+          }
+
+        });
+
+      } else {
+        $('.no-result').show()
+      }
+    });
+  });
+
+   
+  
+  /* Masonry */
+  var masonry = new Macy({
+    container: '#popup-gallery-{{ name }}',
+    trueOrder: false,
+    waitForImages: false,
+    mobileFirst: true,
+    columns: {{ module.styles.gallery_columns_viewport.mobile }},
+      margin: {
+      y: {{ module.styles.gallery_margins_viewport.mobile.margin_y }},
+      x: {{ module.styles.gallery_margins_viewport.mobile.margin_x }},
+    },
+    breakAt: {
+      1140: {
+        margin: {
+          y: {{ module.styles.gallery_margins_viewport.desktop.margin_y }},              
+          x: {{ module.styles.gallery_margins_viewport.desktop.margin_x }},
+        },
+        columns: {{ module.styles.gallery_columns_viewport.desktop }}   
+      },
+      768: {
+        margin: {
+          y: {{ module.styles.gallery_margins_viewport.tablet.margin_y }},              
+          x: {{ module.styles.gallery_margins_viewport.tablet.margin_x }},
+        },
+        columns: {{ module.styles.gallery_columns_viewport.tablet }}   
+      }
+    }
+  });
+  
+  $(function() {
+    
+    /* Popup */
+    $('#popup-gallery-{{ name }}').find('.popupimg').magnificPopup({
+      type: 'image',
+      tLoading: 'Loading image #%curr%...',
+      mainClass: 'mfp-img-mobile',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+      },
+      image: {
+        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+        titleSrc: function(item) {
+          return item.el.attr('title');
+        }
+      }
+
+    });
+
+  });
+
+</script>
+
+{% end_require_js %}

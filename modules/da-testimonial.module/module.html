@@ -1,0 +1,119 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  {% if module.styles.section_background_color.color %}
+  .da-testimonial{
+    background-color: rgba({{ module.styles.section_background_color.color|convert_rgb }}, {{ module.styles.section_background_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+   {% if module.styles.tagline.tag_line_color.color %}
+  .da-testimonial .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  
+  .da-testimonial .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {% if module.styles.heading.heading_color.color %}
+  .da-testimonial .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {% if  module.styles.image_carousel_dots_color.color %}
+  .da-testimonial .slick-dots li button:before,
+  .da-testimonial .slick-dots li.slick-active button:before {
+    color: rgba({{ module.styles.image_carousel_dots_color.color|convert_rgb }}, {{ module.styles.image_carousel_dots_color.opacity / 100 }});
+  }
+  {% else %}
+  .da-testimonial .slick-dots li button:before,
+  .da-testimonial .slick-dots li.slick-active button:before {
+    color: {{ theme.global_colors.secondary_color.color }};  
+  }
+  {% endif %}
+  
+  {% if module.styles.author.author_testimonial_name_color.color %}
+  .da-testimonial .testimonial-name {
+    color: rgba({{ module.styles.author.author_testimonial_name_color.color|convert_rgb }}, {{ module.styles.author.author_testimonial_name_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {% if module.styles.author.author_testimonial_title_color.color %}
+  .da-testimonial .testimonial-title {
+    color: rgba({{ module.styles.author.author_testimonial_title_color.color|convert_rgb }}, {{ module.styles.author.author_testimonial_title_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-testimonial {% if module.styles.section_background_color.color %}p-40{% endif %} {% if module.styles.content_text_center %}text-center{% endif %}">
+  
+  {% if module.tag_line %}
+  <div class="tagline-wrap mb-15">
+    <div class="tagline secondary-color">
+      {{ module.tag_line }}
+    </div>
+    {% if module.styles.tagline.tag_line_divider %}
+
+    <div class="tagline-line secondary-bg-color ml-15"></div>
+    {% endif %}
+  </div>
+  {% endif %}
+  
+  {% if module.heading_text %}
+  <div class="heading-text">
+    {{ module.styles.heading.heading_type }}
+    <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+      {{ module.heading_text }}
+    </span>
+  </div>
+  {% endif %}
+
+  <div class="testimonial" id="testimonial-{{ name }}">
+    {% for item in module.testimonial %}
+    <div>
+      <div class="testimonial-text mb-30">
+        {{ item.testimonial_text }}
+      </div>
+      <div class="testimonial-image mb-15">
+        {% if item.testimonial_image.src %}
+        {% set sizeAttrs = 'width="{{ item.testimonial_image.width }}" height="{{ item.testimonial_image.height }}" style="max-width: 100%; height: auto;"' %}
+        <img class="{% if module.styles.content_text_center %}mr-auto ml-auto{% endif %}" src="{{ item.testimonial_image.src }}" alt="{{ item.testimonial_image.alt }}" loading="lazy" {{ sizeAttrs }}>
+        {% endif %}
+      </div>
+      <div class="testimonial-name font-size-16">
+        {{ item.testimonial_name }}
+      </div>
+      <div class="testimonial-title font-size-12">
+        {{ item.testimonial_title }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% require_js position="footer" %}
+<script>
+  $(function() {
+
+    $('#testimonial-{{ name }}').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 6000,
+      speed: 1000,
+      arrows: false,
+      dots: true,
+      pauseOnHover: false,
+      infinite: false,
+      rows: 0
+    });
+
+  });
+</script>
+{% end_require_js %}

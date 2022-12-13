@@ -1,0 +1,73 @@
+.da-recent-post .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.da-recent-post .flex .col {
+  flex: 0 0 33.33%;
+  padding: 20px;
+}
+
+.da-recent-post .header_flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.da-recent-post .blog-card-topic a:first-child{
+  padding-left: 0px;
+}
+
+.da-recent-post .blog-card-featured-image .featured-image {
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.da-recent-post .list-meta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.da-recent-post .list-meta-date,
+.da-recent-post .list-meta-read-min{
+  display: flex;
+  align-items: center;
+}
+
+.da-recent-post .list-meta-date svg,
+.da-recent-post .list-meta-read-min svg{
+  margin-right: 7px;
+}
+
+.da-recent-post .list-meta-author img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .da-recent-post .flex .col {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .da-recent-post .flex .col {
+    flex: 0 0 100%;
+  }
+  .da-recent-post .header_flex .header_flex-col{
+    flex: 0 0 100%;
+  }
+  .da-recent-post .header_flex-col.btn{
+    margin-top: 20px;
+  }
+
+}

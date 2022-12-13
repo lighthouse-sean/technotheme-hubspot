@@ -1,0 +1,80 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  .da-systems-subscription-preferences-hero {
+    {% if module.styles.section_background_type == "image" %}
+    background-image: url({{ content.post_list_summary_featured_image }});
+    {{ module.styles.section_background_image.css }}
+    {% elif module.styles.section_background_type == "gradient" %}
+    background: {{ module.styles.section_background_gradient.css }};
+    {% endif %}
+    {{ module.styles.section_spacing.desktop.css }}
+  }
+
+  @media (max-width: 767px) {
+
+    .da-systems-subscription-preferences-hero {
+      {{ module.styles.section_spacing.mobile.css }}
+    }
+
+  }
+  
+  {% if module.styles.tag_line_color.color %}
+  .da-systems-subscription-preferences-hero .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tag_line_color.color|convert_rgb }}, {{ module.styles.tag_line_color.opacity / 100 }});
+  }
+  .da-systems-subscription-preferences-hero .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tag_line_color.color|convert_rgb }}, {{ module.styles.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading_color.color %}
+  .da-systems-subscription-preferences-hero .form .page-header h1 {
+    color: rgba({{ module.styles.heading_color.color|convert_rgb }}, {{ module.styles.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  .da-systems-subscription-preferences-hero .form {
+    background: {{ module.styles.form_background_gradient.css }};
+    border-radius: {{ theme.buttons.border_radius }}px; 
+  }
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-systems-subscription-preferences-hero">
+  <div class="content-wrapper">
+    <div class="max-width-850 mr-auto ml-auto">
+      {% if module.tag_line %}
+      <div class="tagline-wrap mb-15">
+        <div class="tagline primary-color">
+          {{ module.tag_line }}
+        </div>
+        <div class="tagline-line primary-bg-color ml-15"></div>
+      </div>
+      {% endif %}
+
+      {% if module.rich_text %}
+      <div class="mb-50">
+        {{ module.rich_text }}
+      </div>
+      {% endif %}
+      
+      <div class="form">
+        {% email_subscriptions
+          "email_subscriptions"
+          resubscribe_button_text="{{ module.resubscribe_button_text }}",
+          unsubscribe_single_text="{{ module.unsubscribe_single_text }}",
+          subheader_text="{{ module.sub_header_text }}",
+          unsubscribe_all_unsubbed_text="{{ module.unsubscribe_all_unsubbed_text }}",
+          button_text="{{ module.button_text }}",
+          header="{{ module.heading_text }}",
+          unsubscribe_all_option="{{ module.unsubscribe_all_option }}",
+          unsubscribe_all_text="{{ module.unsubscribe_all_text }}"
+      %}
+      </div> 
+       
+    </div>
+  </div>
+</section>

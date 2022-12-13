@@ -1,0 +1,79 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  .da-systems-password-prompt-hero {
+    {% if module.styles.section_background_type == "image" %}
+    background-image: url({{ content.post_list_summary_featured_image }});
+    {{ module.styles.section_background_image.css }}
+    {% elif module.styles.section_background_type == "gradient" %}
+    background: {{ module.styles.section_background_gradient.css }};
+    {% endif %}
+    {{ module.styles.section_spacing.desktop.css }}
+  }
+
+  @media (max-width: 767px) {
+
+    .da-systems-password-prompt-hero {
+      {{ module.styles.section_spacing.mobile.css }}
+    }
+
+  }
+  
+  {% if module.styles.tag_line_color.color %}
+  .da-systems-password-prompt-hero .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tag_line_color.color|convert_rgb }}, {{ module.styles.tag_line_color.opacity / 100 }});
+  }
+  .da-systems-password-prompt-hero .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tag_line_color.color|convert_rgb }}, {{ module.styles.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading_color.color %}
+  .da-systems-password-prompt-hero .heading-color {
+    color: rgba({{ module.styles.heading_color.color|convert_rgb }}, {{ module.styles.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  .da-systems-password-prompt-hero .form {
+    background: {{ module.styles.form_background_gradient.css }};
+    border-radius: {{ theme.buttons.border_radius }}px; 
+  }
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-systems-password-prompt-hero">
+  <div class="content-wrapper">
+    <div class="max-width-850 mr-auto ml-auto">
+      {% if module.tag_line %}
+      <div class="tagline-wrap mb-15">
+        <div class="tagline primary-color">
+          {{ module.tag_line }}
+        </div>
+        <div class="tagline-line primary-bg-color ml-15"></div>
+      </div>
+      {% endif %}
+
+      {% if module.heading_text %}
+      <div class="heading-text mb-40">
+        <h1 class="heading-type heading-color font-size-{{ module.styles.heading_font_size }}">
+          {{ module.heading_text }}
+        </h1>
+      </div>
+      {% endif %}
+
+      {% if module.sub_header_text %}
+      <div class="mb-50">
+        {{ module.sub_header_text }}
+      </div>
+      {% endif %}
+      
+      <div class="form">
+        {% password_prompt submit_button_text='{{ module.submit_button_text }}', password_placeholder='{{ module.password_placeholder }}', bad_password_message='{{ module.bad_password_message }}' %}
+
+      </div> 
+       
+    </div>
+  </div>
+</section>

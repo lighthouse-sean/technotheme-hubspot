@@ -1,0 +1,58 @@
+.da-animated-counter .flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.da-animated-counter.text-center .flex {
+  justify-content: center;
+}
+
+.da-animated-counter .flex .col {
+  padding: 10px;
+  width: 100%;
+  flex: 1;
+}
+
+.da-animated-counter .card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  align-content: stretch;
+  flex: 1;
+  overflow: hidden;
+}
+
+.da-animated-counter .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-animated-counter .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+@media (max-width: 1139px) {
+
+  .da-animated-counter .flex .col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+}
+
+@media (max-width: 479px) {
+
+  .da-animated-counter .flex .col {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+}

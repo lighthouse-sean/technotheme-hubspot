@@ -1,0 +1,62 @@
+.da-gallery-filter .list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.da-gallery-filter .no-result {
+  display: none;
+}
+
+.da-gallery-filter .pagination {
+  padding-left: 0;
+  list-style: none;
+}
+
+.da-gallery-filter .pagination li {
+  display: inline-block;
+}
+
+.da-gallery-filter .pagination li:not(:last-child) {
+  margin-right: 15px;
+}
+
+.da-gallery-filter .filter,
+.da-gallery-filter .filter-all {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; 
+  display: none;
+}
+
+.da-gallery-filter .filter:hover,
+.da-gallery-filter .filter-all:hover {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; 
+}
+
+.da-gallery-filter .form-group .radio-inline {
+  display: inline-block;
+  margin: 5px;
+}
+
+.da-gallery-filter .radio-inline label {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+.da-gallery-filter .radio-inline label:hover {
+  cursor: pointer;
+}
+
+.da-gallery-filter .filter-button-plain .radio-inline label {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.da-gallery-filter .filter-button-plain .radio-inline {
+  margin: 5px 10px; 
+}

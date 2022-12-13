@@ -1,0 +1,127 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-hero-2 .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  .da-hero-2 .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-hero-2 .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+  
+  {# Button #}
+  {% if module.styles.button.button_outline %}
+    {# If Button Outline #}
+    {% if module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+    .button-outline {
+      border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+      color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+      fill: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    }
+    .button-outline:hover,
+    .button-outline:focus,
+    .button-outline:active {
+      background-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+      color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+      fill: rgba({{ module.styles.button.utton_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    }
+    {% endif %}
+  {% else %}
+   {# If NOT Button Outline #}
+    {% if module.styles.button.button_background_color.color or module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+    .button, 
+    .cta_button {
+      background-color: rgba({{ module.styles.button.button_background_color.color|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+      border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+      color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+      fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    }
+    .button:hover, 
+    .button:focus,
+    .cta_button:hover,
+    .cta_button:focus {
+      background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+      border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    }
+    .button:active, 
+    .cta_button:active {
+      background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+      border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    }
+    {% endif %}
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-hero-2 {% if module.styles.enable_content_center_alignment %}text-center{% endif %}">
+  <div class="ml-auto mr-auto">
+    {% if module.tag_line %}
+    <div class="tagline-wrap mb-15">
+      <div class="tagline secondary-color">
+        {{ module.tag_line }}
+      </div>
+      {% if module.styles.tagline.tag_line_divider %}
+      <div class="tagline-line secondary-bg-color ml-15"></div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if module.heading_text %}
+    <div class="heading-text">
+      {{ module.styles.heading.heading_type }}
+      <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+        {{ module.heading_text }}
+      </span>
+    </div>
+    {% endif %}
+
+    {% if module.rich_text %}
+    <div>
+      {{ module.rich_text }}
+    </div>
+    {% endif %}
+
+    {% if module.button.button_text %}
+    <div class="mt-30">
+      {% set href = module.button.button_link.url.href %}
+      {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+      {% set href = "mailto:" + href %}
+      {% endif %}
+      {% set rel = [] %}
+      {% if module.button.button_link.no_follow %}
+      {% do rel.append("nofollow") %}
+      {% endif %}
+      {% if module.button.button_link.open_in_new_tab %}
+      {% do rel.append("noopener") %}
+      {% endif %}
+      <a class="{% if module.styles.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+         {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+         {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+         >
+        {{ module.button.button_text }}
+        {% if module.button.button_icon.name %}
+              {% icon
+                name="{{ module.button.button_icon.name }}"
+                style="{{ module.button.button_icon.type }}"
+                unicode="{{ module.button.button_icon.unicode }}"
+                icon_set="{{ module.button.button_icon.icon_set }}"
+                width="16"
+                height="16"
+              %}
+            {% endif %}
+      </a>
+    </div>
+    {% endif %}
+  </div>
+
+</section>

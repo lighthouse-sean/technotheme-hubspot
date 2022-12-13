@@ -1,0 +1,77 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  .da-systems-backup-unsubscribe-hero {
+    {% if module.styles.section_background_type == "image" %}
+    background-image: url({{ content.post_list_summary_featured_image }});
+    {{ module.styles.section_background_image.css }}
+    {% elif module.styles.section_background_type == "gradient" %}
+    background: {{ module.styles.section_background_gradient.css }};
+    {% endif %}
+    {{ module.styles.section_spacing.desktop.css }}
+  }
+
+  @media (max-width: 767px) {
+
+    .da-systems-backup-unsubscribe-hero {
+      {{ module.styles.section_spacing.mobile.css }}
+    }
+
+  }
+  
+  {% if module.styles.tag_line_color.color %}
+  .da-systems-backup-unsubscribe-hero .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tag_line_color.color|convert_rgb }}, {{ module.styles.tag_line_color.opacity / 100 }});
+  }
+  .da-systems-backup-unsubscribe-hero .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tag_line_color.color|convert_rgb }}, {{ module.styles.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading_color.color %}
+  .da-systems-backup-unsubscribe-hero .form .page-header h1 {
+    color: rgba({{ module.styles.heading_color.color|convert_rgb }}, {{ module.styles.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  .da-systems-backup-unsubscribe-hero .form {
+    background: {{ module.styles.form_background_gradient.css }};
+    border-radius: {{ theme.buttons.border_radius }}px; 
+  }
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-systems-backup-unsubscribe-hero">
+  <div class="content-wrapper">
+    <div class="max-width-850 mr-auto ml-auto">
+      {% if module.tag_line %}
+      <div class="tagline-wrap mb-15">
+        <div class="tagline primary-color">
+          {{ module.tag_line }}
+        </div>
+        <div class="tagline-line primary-bg-color ml-15"></div>
+      </div>
+      {% endif %}
+
+      {% if module.rich_text %}
+      <div class="mb-50">
+        {{ module.rich_text }}
+      </div>
+      {% endif %}
+      
+      <div class="form">
+        {% email_simple_subscription 
+          "email_simple_subscription",
+          header="{{ module.heading_text }}", 
+          input_help_text="{{ module.input.input_help_text }}", 
+          input_placeholder="{{ module.input.input_placeholder }}", 
+          button_text="{{ module.input.input_button_text }}", 
+          label="Backup Unsubscribe" 
+      %}
+      </div>
+      
+    </div>
+  </div>
+</section>

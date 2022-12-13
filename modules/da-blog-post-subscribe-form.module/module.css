@@ -1,0 +1,89 @@
+
+.da-blog-post-subscribe-form .tagline-wrap {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.da-blog-post-subscribe-form .tagline-wrap .tagline-line {
+  width: 30px;
+  height: 2px;
+}
+
+.da-blog-post-subscribe-form form {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.da-blog-post-subscribe-form form .hs-email {
+  flex-grow: 1;
+}
+
+.da-blog-post-subscribe-form form .hs-form-field > label {
+  display: none;
+}
+
+.da-blog-post-subscribe-form form .hs-email .hs-input {
+  padding: 15px 12px;
+  border-width: 1px;
+  height: 50px !important;
+  line-height: 1;
+}
+
+.da-blog-post-subscribe-form form input[type=submit],
+.da-blog-post-subscribe-form form .hs-button {
+  padding: 15px 20px;
+  height: 50px;
+  line-height: 1;
+}
+
+.da-blog-post-subscribe-form form .field,
+.da-blog-post-subscribe-form form .hs-submit .actions {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.da-blog-post-subscribe-form form .hs-submit .actions {
+  padding-left: 10px; 
+}
+
+.da-blog-post-subscribe-form .hs-form .field.hs-form-field:not(.hs-email) {
+  display: none;
+}
+
+.da-blog-post-subscribe-form .hs-form:not([action]) .field.hs-form-field {
+  display: none;
+}
+
+.da-blog-post-subscribe-form .hs-form:not([action]) .field.hs-form-field:first-child {
+  display: block;
+  flex-grow: 1;
+}
+
+.da-blog-post-subscribe-form .hs-form:not([action]) .field.hs-form-field:first-child .hs-input {
+  padding: 15px 12px;
+  border-width: 1px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 50px !important;
+  line-height: 1;
+}
+
+.da-blog-post-subscribe-form .hs-form {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  background-color: transparent;
+}
+
+@media (max-width: 767px) {
+
+  .da-blog-post-subscribe-form form .hs-submit .actions {
+    padding-left: 0;
+  }
+  
+}

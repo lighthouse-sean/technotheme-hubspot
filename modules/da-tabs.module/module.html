@@ -1,0 +1,279 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+
+  {% if module.styles.tagline.tag_line_color.color %}
+  .da-tabs .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+
+  .da-tabs .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tagline.tag_line_color.color|convert_rgb }}, {{ module.styles.tagline.tag_line_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.heading.heading_color.color %}
+  .da-tabs .heading-text .heading-color {
+    color: rgba({{ module.styles.heading.heading_color.color|convert_rgb }}, {{ module.styles.heading.heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {# Button #}
+  {% if module.styles.button.button_outline %}
+  {% if module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  {# If Button Outline #}
+  .button-outline {
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button-outline:hover,
+  .button-outline:focus,
+  .button-outline:active {
+    background-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.button.button_background_color.color or module.styles.button.button_border_color.color or module.styles.button.button_text_color.color %}
+  .button, 
+  .cta_button {
+    background-color: rgba({{ module.styles.button.button_background_color.color|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.button.button_border_color.color|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+    fill: rgba({{ module.styles.button.button_text_color.color|convert_rgb }}, {{ module.styles.button.button_text_color.opacity / 100 }});
+  }
+  .button:hover, 
+  .button:focus,
+  .cta_button:hover,
+  .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -20)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  .button:active, 
+  .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.button.button_background_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.button.button_border_color.color, -30)|convert_rgb }}, {{ module.styles.button.button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+  {# Tab Button #}
+  {% if module.styles.tab.button.tab_button_outline %}
+  {# If Button Outline #}
+  {% if module.styles.tab.button.tab_button_border_color.color or module.styles.tab.button.tab_button_text_color.color %}
+  .tab-pane .button-outline {
+    border-color: rgba({{ module.styles.tab.button.tab_button_border_color.color|convert_rgb }}, {{ module.styles.tab.button.tab_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.tab.button.tab_button_border_color.color|convert_rgb }}, {{ module.styles.tab.button.tab_button_border_color.opacity / 100 }});
+  }
+  .tab-pane .button-outline:hover,
+  .tab-pane .button-outline:focus,
+  .tab-pane .button-outline:active {
+    background-color: rgba({{ module.styles.tab.button.tab_button_border_color.color|convert_rgb }}, {{ module.styles.tab.button.tab_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.tab.button.tab_button_text_color.color|convert_rgb }}, {{ module.styles.tab.button.tab_button_text_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% else %}
+  {# If NOT Button Outline #}
+  {% if module.styles.tab.button.tab_button_background_color.color or module.styles.tab.button.tab_button_border_color.color or module.styles.tab.button.tab_button_text_color.color %}
+  .tab-pane .button, 
+  .tab-pane .cta_button {
+    background-color: rgba({{ module.styles.tab.button.tab_button_background_color.color|convert_rgb }}, {{ module.styles.tab.button.tab_button_background_color.opacity / 100 }});
+    border-color: rgba({{ module.styles.tab.button.tab_button_border_color.color|convert_rgb }}, {{ module.styles.tab.button.tab_button_border_color.opacity / 100 }});
+    color: rgba({{ module.styles.tab.button.tab_button_text_color.color|convert_rgb }}, {{ module.styles.tab.button.tab_button_text_color.opacity / 100 }});
+  }
+  .tab-pane .button:hover, 
+  .tab-pane .button:focus,
+  .tab-pane .cta_button:hover,
+  .tab-pane .cta_button:focus {
+    background-color: rgba({{ color_variant(module.styles.tab.button.tab_button_background_color.color, -20)|convert_rgb }}, {{ module.styles.tab.button.tab_button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.tab.button.tab_button_border_color.color, -20)|convert_rgb }}, {{ module.styles.tab.button.tab_button_border_color.opacity / 100 }});
+  }
+  .tab-pane .button:active, 
+  .tab-pane .cta_button:active {
+    background-color: rgba({{ color_variant(module.styles.tab.button.tab_button_background_color.color, -30)|convert_rgb }}, {{ module.styles.tab.button.tab_button_background_color.opacity / 100 }});
+    border-color: rgba({{ color_variant(module.styles.tab.button.tab_button_border_color.color, -30)|convert_rgb }}, {{ module.styles.tab.button.tab_button_border_color.opacity / 100 }});
+  }
+  {% endif %}
+  {% endif %}
+
+
+  {% if module.styles.tab.nav.tab_nav_text_color.color %}
+  .da-tabs .nav-tabs li a {
+    color: rgba({{ module.styles.tab.nav.tab_nav_text_color.color|convert_rgb }}, {{ module.styles.tab.nav.tab_nav_text_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.tab.nav.tab_nav_active_color.color %}
+  .da-tabs .nav-tabs li.active a {
+    border-color: rgba({{ module.styles.tab.nav.tab_nav_active_color.color|convert_rgb }}, {{ module.styles.tab.nav.tab_nav_active_color.opacity / 100 }});
+  }
+  {% else %}
+  .da-tabs .nav-tabs li.active a {
+    border-color: {{ theme.global_colors.secondary_color.color }};
+  }
+  {% endif %}
+
+  {% if module.styles.tab.tagline.tab_tagline_color.color %}
+  .da-tabs .tab-pane .tagline-wrap .tagline {
+    color: rgba({{ module.styles.tab.tagline.tab_tagline_color.color|convert_rgb }}, {{ module.styles.tab.tagline.tab_tagline_color.opacity / 100 }});
+  }
+
+  .da-tabs .tab-pane .tagline-wrap .tagline-line {
+    background-color: rgba({{ module.styles.tab.tagline.tab_tagline_color.color|convert_rgb }}, {{ module.styles.tab.tagline.tab_tagline_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% if module.styles.tab.heading.tab_heading_color.color %}
+  .da-tabs .tab-pane .heading-text .heading-color {
+    color: rgba({{ module.styles.tab.heading.tab_heading_color.color|convert_rgb }}, {{ module.styles.tab.heading.tab_heading_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-tabs {% if module.styles.content_text_center %}text-center{% endif %}">
+
+  {% if module.tag_line %}
+  <div class="tagline-wrap mb-15">
+    <div class="tagline secondary-color">
+      {{ module.tag_line }}
+    </div>
+    {% if module.styles.tagline.tag_line_divider %}
+    <div class="tagline-line secondary-bg-color ml-15"></div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if module.heading_text %}
+  <div class="heading-text">
+    {{ module.styles.heading.heading_type }}
+    <span class="heading-type heading-color font-size-{{ module.styles.heading.heading_font_size }}">
+      {{ module.heading_text }}
+    </span>
+  </div>
+  {% endif %}
+
+  {% if module.rich_text %}
+  <div class="mb-30">
+    {{ module.rich_text }}
+  </div>
+  {% endif %}
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs list-inline mb-50" role="tablist">
+    {% for item in module.tab %}
+    <li role="presentation" class="font-weight-500 list-inline-item {% if loop.first %}active{% endif %}">
+      <a href="#item{{ loop.index }}-{{ name }}" aria-controls="item{{ loop.index }}-{{ name }}" role="tab" data-toggle="tab">{{ item.tab_nav }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    {% for item in module.tab %}
+    <div role="tabpanel" class="tab-pane fade {% if loop.first %}in active{% endif %}" id="item{{ loop.index }}-{{ name }}">
+      <div class="flex flex--{{ item.tab_content_type }}">
+        <div class="col text-left">
+          {% if item.tab_tag_line %}
+          <div class="tagline-wrap mb-15">
+            <div class="tagline secondary-color">
+              {{ item.tab_tag_line }}
+            </div>
+            {% if module.styles.tab.tagline.tab_tagline_divider %}
+            <div class="tagline-line secondary-bg-color ml-15"></div>
+            {% endif %}
+          </div>
+
+          {% endif %}
+
+          {% if item.tab_heading_text %}
+          <div class="heading-text">
+            {{ module.styles.tab.heading.tab_heading_type }}
+            <span class="heading-type heading-color font-size-{{ module.styles.tab.heading.tab_heading_font_size }}">
+              {{ item.tab_heading_text }}
+            </span>
+          </div>
+          {% endif %}
+
+          {% if item.tab_rich_text %}
+          <div class="mb-50">
+            {{ item.tab_rich_text }}
+          </div>
+          {% endif %}
+
+          {% if item.tab_button.tab_button_text %}
+          <div>
+            {% set href = item.tab_button.tab_button_link.url.href %}
+            {% if item.tab_button.tab_button_link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+            {% endif %}
+            {% set rel = [] %}
+            {% if item.tab_button.tab_button_link.no_follow %}
+            {% do rel.append("nofollow") %}
+            {% endif %}
+            {% if item.tab_button.tab_button_link.open_in_new_tab %}
+            {% do rel.append("noopener") %}
+            {% endif %}
+            <a class="{% if module.styles.tab.button.tab_button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+               {% if item.tab_button.tab_button_link.open_in_new_tab %}target="_blank"{% endif %}
+               {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+               >
+              {{ item.tab_button.tab_button_text }}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        <div class="col text-right text-phone-center">
+          {% if item.image.src %}
+          {% set sizeAttrs = 'width="{{ item.image.width }}" height="{{ item.image.height }}"' %}
+          {% if item.image.size_type == 'auto' %}
+          {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+          {% elif item.image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ item.image.max_width }}" height="{{ item.image.max_height }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          {% set loadingAttr = item.image.loading != 'disabled' ? 'loading="{{ item.image.loading }}"' : '' %}
+          <img src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if module.button.button_text %}
+  <div class="mt-50">
+    {% set href = module.button.button_link.url.href %}
+    {% if module.button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+    {% endif %}
+    {% set rel = [] %}
+    {% if module.button.button_link.no_follow %}
+    {% do rel.append("nofollow") %}
+    {% endif %}
+    {% if module.button.button_link.open_in_new_tab %}
+    {% do rel.append("noopener") %}
+    {% endif %}
+    <a class="{% if module.styles.button.button_outline %}button-outline{% else %}button{% endif %}" href="{{ href }}"
+       {% if module.button.button_link.open_in_new_tab %}target="_blank"{% endif %}
+       {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+       >
+      {{ module.button.button_text }}
+      {% if module.button.button_icon.name %}
+      {% icon
+          name="{{ module.button.button_icon.name }}"
+          style="{{ module.button.button_icon.type }}"
+          unicode="{{ module.button.button_icon.unicode }}"
+          icon_set="{{ module.button.button_icon.icon_set }}"
+          width="16"
+          height="16"
+        %}
+      {% endif %}
+    </a>
+  </div>
+  {% endif %}  
+</section>

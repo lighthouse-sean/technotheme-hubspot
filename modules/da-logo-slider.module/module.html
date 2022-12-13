@@ -1,0 +1,86 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+  
+  {% if module.styles.dots_color.color %}
+  .da-logo-slider .slick-dots li button:before,
+  .da-logo-slider .slick-dots li.slick-active button:before {
+    color: rgba({{ module.styles.dots_color.color|convert_rgb }}, {{ module.styles.dots_color.opacity / 100 }});
+  }
+  {% endif %}
+
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="da-logo-slider">
+  <div class="customer-logos" id="customer-logos-{{ name }}">
+    {% for item in module.logo %}
+      {% if item.image.src %}
+      <div class="slide">
+
+        {% set href = item.link.url.href %}
+        {% if item.link.url.type is equalto "EMAIL_ADDRESS" %}
+        {% set href = "mailto:" + href %}
+        {% endif %}
+        {% set rel = [] %}
+        {% if item.link.no_follow %}
+        {% do rel.append("nofollow") %}
+        {% endif %}
+        {% if item.link.open_in_new_tab %}
+        {% do rel.append("noopener") %}
+        {% endif %}
+        {% if href %}<a href="{{ href }}"
+           {% if item.link.open_in_new_tab %}target="_blank"{% endif %}
+           {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+           >
+        {% endif %}
+          {% if item.image.src %}
+          {% set sizeAttrs = 'width="{{ item.image.width }}" height="{{ item.image.height }}"' %}
+          {% if item.image.size_type == 'auto' %}
+          {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+          {% elif item.image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ item.image.max_width }}" height="{{ item.image.max_height }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          {% set loadingAttr = item.image.loading != 'disabled' ? 'loading="{{ item.image.loading }}"' : '' %}
+          <img class="{% if item.filter %}filter{% endif %}" src="{{ item.image.src }}" alt="{{ item.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+          {% endif %}
+        {% if href %}</a>{% endif %}
+
+
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% require_js position="footer" %}
+<script>
+  $('#customer-logos-{{ name }}').slick({
+    slidesToShow: {{ module.styles.slides_to_show }},
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    dots: {% if module.styles.dots %}true{% else %}false{% endif %},
+    pauseOnHover: false,
+    rows: 0,
+    responsive: [{
+      breakpoint: 1140,
+      settings: {
+        slidesToShow: 4
+      }
+    }, {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3
+      }
+    }, {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2
+      }
+    }]
+  });
+</script>
+{% end_require_js %}
