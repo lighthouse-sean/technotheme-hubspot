@@ -1,0 +1,14 @@
+defaultPortal: technotheme
+portals:
+  - name: technotheme
+    portalId: 22499507
+    authType: personalaccesskey
+    auth:
+      tokenInfo:
+        accessToken: >-
+          CKCByIjRMBIJAA0AAAAA4A0DGLOh3QogzuSLFiju6QwyFBXEh8IC5-361cGpdnkEZxdXY-7hOjcAAARBAAAAeAAAAAAAAAAAAAAAAAAAAAQAAMAHAP7_MTwAAAYAAABgAAAAAAAAAAAAAAAAADACQhQlPMrMsRUsYYpb2Go9Ddgc5G9iLUoDbmExUgBaAA
+        expiresAt: '2022-12-14T14:37:50.628Z'
+    personalAccessKey: >-
+      CiQ5NWU3ZDFlMS0yMTUyLTQxODAtOTg2Zi0yMjk4NGJkZWExNDEQs6HdChjO5IsWKhkABeaRgnY9ZR6bTGpHaIwGvNq7ecDQUA9NSgNuYTE
+    sandboxAccountType: null
+    parentAccountId: null
